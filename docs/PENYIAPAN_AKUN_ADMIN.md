@@ -23,11 +23,14 @@ where id = 'GANTI-DENGAN-UUID-AKUN'::uuid;
 ```
 
 5. Pastikan tepat satu profil berubah. Keluar lalu masuk kembali melalui `/admin/login` agar sesi dan peran dibaca ulang.
-6. Untuk akun berikutnya, buat pengguna melalui Auth lalu tetapkan peran yang sesuai (`editor`, `publisher`, atau `admin`) dengan persetujuan pemilik sistem.
+6. Untuk akun berikutnya, buat pengguna melalui Auth. Setelah profil muncul, administrator dapat menetapkan peran melalui menu **Pengguna & Level Akses** di dashboard: `/admin/pengguna`.
 
 ## Pembagian kewenangan
-- **editor:** menyiapkan dan menyimpan draf.
-- **publisher:** memeriksa dan menerbitkan konten/modul.
-- **admin:** kewenangan pengelolaan penuh, termasuk menghapus modul sesuai kebijakan database.
+- **viewer:** baca saja untuk meninjau konten dan modul; tidak dapat menyimpan perubahan.
+- **editor:** membuat konten dan memperbarui draf; tidak dapat menerbitkan atau mengarsipkan konten terbit.
+- **publisher:** meninjau, menerbitkan, dan mengarsipkan konten/modul; tidak mengelola peran pengguna.
+- **admin:** pengelolaan penuh, termasuk pengaturan peran pengguna dan penghapusan modul sesuai kebijakan database.
+
+Perubahan peran dilakukan lewat fungsi database yang memeriksa sesi dan peran admin. Admin tidak dapat mengubah perannya sendiri dari layar ini, dan admin terakhir tidak dapat diturunkan perannya. Pembuatan akun baru tetap dilakukan melalui Supabase Auth, bukan formulir pendaftaran publik.
 
 Jangan membuat akun bersama. Setiap petugas sebaiknya memiliki akun masing-masing agar perubahan dapat ditelusuri.
