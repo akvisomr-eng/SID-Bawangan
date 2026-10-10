@@ -347,3 +347,66 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
 .agency-module-published{display:block;margin-top:14px;color:var(--muted)}
 @media(max-width:900px){.agency-managed-module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.agency-managed-module-grid{grid-template-columns:1fr}.module-workspace-shortcut{align-items:flex-start;flex-direction:column}.agency-managed-module-card{padding:20px}}
+
+
+/* SID Bawangan administration — Mantis Free Bootstrap Admin Template v1.0.0-inspired workspace */
+.sid-admin-sidebar{position:fixed;z-index:80;inset:0 auto 0 0;width:258px;display:flex;flex-direction:column;background:#fff;border-right:1px solid #e7eaf0;color:#293448;font-family:Inter,'DM Sans',system-ui,sans-serif;box-shadow:3px 0 18px #172b4d05}
+.sid-admin-brand{min-height:82px;display:flex;align-items:center;gap:12px;padding:16px 22px;border-bottom:1px solid #eef0f4;color:#273449;text-decoration:none}
+.sid-admin-brand-mark{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:linear-gradient(145deg,#23734f,#164a35);color:#fff;font-weight:800;font-size:22px;box-shadow:0 6px 14px #1d654526}
+.sid-admin-brand strong,.sid-admin-brand small{display:block}
+.sid-admin-brand strong{font-size:13px;letter-spacing:.11em}
+.sid-admin-brand small{margin-top:4px;color:#8792a5;font-size:10px}
+.sid-admin-side-scroll{flex:1;overflow:auto;padding:15px 12px 18px;scrollbar-width:thin}
+.sid-admin-nav-group{margin:0 0 18px}
+.sid-admin-nav-group>p{margin:8px 10px 9px;color:#9aa4b5;font-size:9px;font-weight:800;letter-spacing:.13em}
+.sid-admin-nav-link{display:flex;align-items:center;gap:11px;min-height:37px;margin:2px 0;padding:8px 10px;border-radius:8px;color:#657187;text-decoration:none;font-size:11px;font-weight:600;line-height:1.35;transition:background .15s,color .15s}
+.sid-admin-nav-link:hover{background:#f4f7f5;color:#236c4a}
+.sid-admin-nav-link.active{background:#eaf4ee;color:#176b4d;font-weight:800}
+.sid-admin-nav-icon{flex:0 0 22px;display:grid;place-items:center;width:22px;height:22px;border-radius:6px;background:#f3f5f8;color:#7a8799;font-size:14px}
+.sid-admin-nav-link.active .sid-admin-nav-icon{background:#d5eadb;color:#176b4d}
+.sid-admin-sidebar-bottom{display:flex;align-items:center;gap:9px;padding:15px 18px;border-top:1px solid #eef0f4}
+.sid-admin-live-dot{width:8px;height:8px;flex:0 0 auto;border-radius:50%;background:#2c9b62;box-shadow:0 0 0 4px #2c9b6218}
+.sid-admin-sidebar-bottom strong,.sid-admin-sidebar-bottom small{display:block}
+.sid-admin-sidebar-bottom strong{font-size:10px;color:#344157}
+.sid-admin-sidebar-bottom small{margin-top:3px;font-size:9px;color:#909aab}
+.sid-admin-sidebar-bottom>a{margin-left:auto;color:#548067;text-decoration:none;font-size:18px}
+.admin-page-with-sidebar{min-height:100vh;padding:0 28px 0 286px;background:#f5f7fb;color:#293448;font-family:Inter,'DM Sans',system-ui,sans-serif}
+.admin-page-with-sidebar .admin-topbar{height:76px;border-bottom:1px solid #e7eaf0}
+.admin-page-with-sidebar .admin-topbar .brand-mark{border-radius:10px}
+.admin-page-with-sidebar .admin-heading{padding:30px 0 22px}
+.admin-page-with-sidebar .admin-heading .eyebrow,.admin-page-with-sidebar .panel-heading .eyebrow{color:#7685a0}
+.admin-page-with-sidebar .admin-heading h1{font-size:29px;letter-spacing:-.045em;color:#253247}
+.admin-page-with-sidebar .admin-heading>div:first-child>p:last-child{max-width:720px;line-height:1.8;color:#7c879a}
+.admin-page-with-sidebar .admin-stats>div{min-width:100px;border-color:#e7eaf0;border-radius:11px;box-shadow:0 4px 16px #29344805}
+.admin-page-with-sidebar .admin-stats strong{font-size:22px;color:#27364c}
+.admin-page-with-sidebar .admin-stats span{margin-top:4px;color:#8792a5;font-size:10px}
+.admin-page-with-sidebar .editor-panel,.admin-page-with-sidebar .posts-panel{border-color:#e7eaf0;border-radius:12px;box-shadow:0 4px 18px #29344806}
+.admin-page-with-sidebar .button-primary{background:#236c4a;border-color:#236c4a}
+.admin-page-with-sidebar .button-primary:hover{background:#195638}
+.admin-page-with-sidebar .button-secondary{border-color:#dce4df;background:#f5faf6;color:#236c4a}
+.admin-page-with-sidebar .status-message{border-radius:9px}
+.admin-page-with-sidebar .module-workspace-shortcut{margin:0 0 17px}
+.sid-admin-overview{margin:0 0 22px;padding:22px;border:1px solid #e7eaf0;border-radius:13px;background:#fff;box-shadow:0 4px 18px #29344805}
+.sid-admin-overview-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:16px}
+.sid-admin-overview-heading .eyebrow{margin:0;color:#7787a2}
+.sid-admin-overview-heading h2{margin:6px 0 7px;font-size:18px;letter-spacing:-.025em;color:#29364b}
+.sid-admin-overview-heading p:not(.eyebrow){margin:0;color:#8490a3;font-size:11px;line-height:1.7}
+.sid-admin-overview-heading>a{flex:0 0 auto;margin-top:7px;color:#236c4a;text-decoration:none;font-size:11px;font-weight:800}
+.sid-admin-overview-heading>a span{margin-left:7px}
+.sid-admin-overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.sid-admin-overview-grid>a{display:flex;align-items:center;gap:11px;min-height:76px;padding:13px;border:1px solid #edf0f4;border-radius:10px;background:#fff;text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+.sid-admin-overview-grid>a:hover{transform:translateY(-2px);border-color:#c9ddcf;box-shadow:0 7px 18px #29344808}
+.sid-admin-overview-icon{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border-radius:10px;background:#edf5ef;color:#236c4a;font-size:18px}
+.sid-admin-overview-grid>a>span:nth-child(2){min-width:0;flex:1}
+.sid-admin-overview-grid strong,.sid-admin-overview-grid small{display:block}
+.sid-admin-overview-grid strong{color:#344157;font-size:10px;line-height:1.5}
+.sid-admin-overview-grid small{margin-top:4px;color:#8994a6;font-size:9px;line-height:1.5}
+.sid-admin-overview-grid>a>b{color:#98a4b5;font-size:14px}
+.sid-admin-module-summary{display:flex;align-items:center;gap:24px;margin-top:16px;padding-top:15px;border-top:1px solid #eef0f4}
+.sid-admin-module-summary>span{display:flex;align-items:baseline;gap:6px}
+.sid-admin-module-summary strong{color:#2c3b51;font-size:17px}
+.sid-admin-module-summary small{color:#8a95a6;font-size:9px}
+.sid-admin-module-summary>a{margin-left:auto;color:#236c4a;text-decoration:none;font-size:10px;font-weight:800}
+@media(max-width:1200px){.sid-admin-overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-page-with-sidebar{padding-right:20px;padding-left:278px}}
+@media(max-width:900px){.sid-admin-sidebar{position:relative;inset:auto;width:auto;height:310px;margin:0 -15px 18px;border-right:0;border-bottom:1px solid #e7eaf0}.sid-admin-brand{min-height:65px}.sid-admin-side-scroll{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}.sid-admin-nav-group{margin-bottom:12px}.sid-admin-sidebar-bottom{display:none}.admin-page-with-sidebar{padding:0 16px 24px}.admin-page-with-sidebar .admin-topbar{height:auto;min-height:70px;gap:10px}.admin-page-with-sidebar .admin-heading{padding-top:25px}}
+@media(max-width:600px){.sid-admin-sidebar{height:280px;margin:0 -16px 14px}.sid-admin-side-scroll{grid-template-columns:1fr 1fr;padding:10px}.sid-admin-nav-group>p{font-size:8px}.sid-admin-nav-link{font-size:10px;gap:7px;padding:7px 8px}.sid-admin-overview{padding:16px}.sid-admin-overview-heading{flex-direction:column;gap:7px}.sid-admin-overview-grid{grid-template-columns:1fr}.sid-admin-module-summary{flex-wrap:wrap;gap:12px 18px}.sid-admin-module-summary>a{margin-left:0;flex-basis:100%}.admin-page-with-sidebar .admin-top-actions{gap:8px}.admin-page-with-sidebar .admin-heading h1{font-size:25px}}
