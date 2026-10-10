@@ -13,7 +13,7 @@ type ContentRow = { title: string; summary?: string | null; body?: string | null
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: corsHeaders });
 function normalizeOfficialLinks(answer: string): string {
   // Keep JDIH Kemendesa references at the agreed stable homepage only.
-  return answer.replace(/https?:\\/\\/jdih\\.kemendesa\\.go\\.id\\/[^\\s)\\]}>"']*/gi, "https://jdih.kemendesa.go.id");
+  return answer.replace(/https?:\/\/jdih\.kemendesa\.go\.id\/[^\s)\]}>\"']*/gi, "https://jdih.kemendesa.go.id");
 }
 
 const redact = (value: string) => value
