@@ -145,7 +145,7 @@ export default function HomePage() {
               <div><dt>Alamat kantor</dt><dd>Jalan Tanjung Wadung No. 17, Bawangan, Ploso, Jombang, Jawa Timur 61453</dd></div>
               <div><dt>Telepon</dt><dd><a href="tel:085231263646">0852-3126-3646</a></dd></div>
               <div><dt>Email</dt><dd><a href="mailto:desabawanganmajubersama@gmail.com">desabawanganmajubersama@gmail.com</a></dd></div>
-              <div><dt>Luas wilayah</dt><dd>Angka yang diberikan: 1774 km² <small>Perlu konfirmasi kembali angka dan satuan luas sebelum ditetapkan sebagai data resmi.</small></dd></div>
+              <div><dt>Luas wilayah</dt><dd>Menunggu konfirmasi data resmi <small>Angka dan satuan luas akan ditampilkan setelah diverifikasi oleh Pemerintah Desa Bawangan.</small></dd></div>
             </dl>
             <div className="agency-regency-mark"><img src="https://desabawangan.id/logo/jombang.png" alt="Lambang Kabupaten Jombang" loading="lazy" /><span>Lambang Kabupaten Jombang</span></div>
           </article>
