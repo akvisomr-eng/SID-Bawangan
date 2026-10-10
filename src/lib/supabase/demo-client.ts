@@ -104,7 +104,7 @@ export function createDemoSupabaseBrowserClient(): SupabaseClient<Database> | nu
         const found = rows.filter((row) => matches(row, filters));
         if (action === 'update' && payload) {
           store[table] = rows.filter((row) => !matches(row, filters)).concat(
-            found.filter((row) => !payload!.__demo_deleted).map((row) => ({ ...row, ...payload, updated_at: new Date().toISOString() })),
+            found.filter((row) => !(payload as Row).__demo_deleted).map((row) => ({ ...row, ...payload, updated_at: new Date().toISOString() })),
           );
           if (payload.__demo_deleted) { saveStore(store); return { data: found, error: null }; }
           saveStore(store);
