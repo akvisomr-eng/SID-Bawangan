@@ -141,6 +141,15 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
 .agency-anchor-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
 .agency-anchor-grid span{display:block;padding:15px;border:1px solid #e4e8e2;background:#fff;font-size:12px;font-weight:700}
 .agency-anchor-grid small{display:block;margin-top:7px;color:#8a918b;font-size:9px;font-weight:500}
+.agency-village-map{margin-top:30px;padding:clamp(18px,3vw,30px);border:1px solid #e4e8e2;background:#fff}
+.agency-village-map-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:20px}
+.agency-village-map-heading h3{margin:8px 0;font-size:clamp(22px,3vw,30px);letter-spacing:-.035em}
+.agency-village-map-heading p{margin:0;color:var(--agency-muted);font-size:13px;line-height:1.7}
+.agency-village-map-heading>a{display:inline-flex;align-items:center;gap:9px;flex-shrink:0;padding:12px 16px;background:#244b35;color:#fff;text-decoration:none;font-size:11px;font-weight:700}
+.agency-village-map-frame{height:clamp(300px,45vw,480px);overflow:hidden;background:#edf0eb}
+.agency-village-map-frame iframe{display:block;width:100%;height:100%;border:0}
+.agency-village-map-note{margin:12px 0 0;color:#777f78;font-size:11px;line-height:1.7}
+@media(max-width:700px){.agency-village-map-heading{align-items:flex-start;flex-direction:column;gap:15px}.agency-village-map-heading>a{align-self:flex-start}.agency-village-map-frame{height:340px}}
 #ppid,#jaring-pengaman-sosial,#transparansi,#dokumen,#layanan,#profil{scroll-margin-top:95px}
 @media(max-width:1150px){.agency-nav-links{gap:10px}.agency-nav-links>a,.agency-nav-dropdown>summary{font-size:8px}.agency-brand{font-size:12px}.agency-nav-links .agency-admin-link{padding:10px}}
 @media(max-width:700px){
