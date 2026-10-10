@@ -37,8 +37,8 @@ function score(row: ContentRow, terms: string[]): number {
 function fallbackAnswer(items: Array<{title:string; summary:string; content:string}>) {
   const chosen = items.slice(0, 4);
   if (!chosen.length) return { answer: "Maaf, informasi resmi yang cukup belum tersedia di website. Silakan periksa menu Profil, Berita, atau Layanan, atau hubungi kantor desa melalui kanal resmi yang tercantum di website. Mode informasi dasar sedang aktif.", sources: [], mode: "knowledge_fallback" };
-  const lines = chosen.map((item) => "• " + item.title + ((item.summary || item.content) ? " — " + (item.summary || item.content).replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").trim().slice(0, 400) : ""));
-  return { answer: "Saya sedang menggunakan mode informasi dasar. Berikut ringkasan informasi publik yang paling relevan:\\n\\n" + lines.join("\\n\\n") + "\\n\\nJika belum menjawab pertanyaan, silakan buka sumbernya atau hubungi kantor desa melalui kanal resmi pada website.", sources: chosen.map((item) => item.title), mode: "knowledge_fallback" };
+  const lines = chosen.map((item) => "• " + item.title + ((item.summary || item.content) ? " — " + (item.summary || item.content).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim().slice(0, 400) : ""));
+  return { answer: "Saya sedang menggunakan mode informasi dasar. Berikut ringkasan informasi publik yang paling relevan:\n\n" + lines.join("\n\n") + "\n\nJika belum menjawab pertanyaan, silakan buka sumbernya atau hubungi kantor desa melalui kanal resmi pada website.", sources: chosen.map((item) => item.title), mode: "knowledge_fallback" };
 }
 
 Deno.serve(async (request: Request) => {
