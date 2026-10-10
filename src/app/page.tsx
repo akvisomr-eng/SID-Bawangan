@@ -83,7 +83,65 @@ export default function HomePage() {
       <div className="agency-masthead-caption">KECAMATAN PLOSO <span>•</span> KABUPATEN JOMBANG <span>•</span> JAWA TIMUR</div>
     </header>
 
-    <section className="agency-section" id="sejarah"><div className="agency-container agency-compact-info"><p className="agency-kicker agency-kicker-green">MENGENAL BAWANGAN</p><h2>Desa Bawangan, maju bersama masyarakat.</h2><p>Informasi sejarah, visi, misi, wilayah, dan pemerintahan desa akan dipublikasikan setelah data resmi diterima dan diverifikasi.</p><div className="agency-anchor-grid"><span id="visi-misi">Visi dan Misi <small>Menunggu dokumen resmi</small></span><span id="pemerintahan">Pemerintahan Desa <small>Menunggu data resmi</small></span><span id="wilayah">Wilayah Desa <small>Menunggu data resmi</small></span><span id="data-wilayah">Data Wilayah <small>Menunggu data resmi</small></span><span id="statistik">Statistik Desa <small>Menunggu data resmi</small></span><span id="data-penduduk">Data Penduduk <small>Menunggu data resmi</small></span><span id="data-sosial">Data Sosial <small>Menunggu data resmi</small></span><span id="produk-hukum">Produk Hukum <small>Menunggu dokumen resmi</small></span></div></div></section>
+    <section className="agency-section" id="sejarah">
+      <div className="agency-container">
+        <div className="agency-section-heading">
+          <p className="agency-kicker agency-kicker-green">MENGENAL BAWANGAN</p>
+          <h2>Sejarah &amp; Profil Desa</h2>
+          <p>Ringkasan identitas, sejarah, dan kondisi Desa Bawangan.</p>
+        </div>
+        <div className="agency-profile-layout">
+          <article className="agency-profile-card agency-history-card">
+            <span className="agency-profile-eyebrow">SEJARAH DESA</span>
+            <h3>Desa Bawangan</h3>
+            <p>Bagian sejarah Desa Bawangan disiapkan sebagai ruang untuk mendokumentasikan asal-usul desa, perkembangan wilayah, serta kisah masyarakat dari masa ke masa. Narasi sejarah yang lebih terperinci akan dimuat setelah dikonfirmasi melalui sumber dan dokumen resmi desa, agar informasi yang diterbitkan tetap akurat.</p>
+          </article>
+          <article className="agency-profile-card" id="profil">
+            <span className="agency-profile-eyebrow">PROFIL DESA</span>
+            <h3>Identitas dan Pelayanan</h3>
+            <p>Desa Bawangan berlokasi di Jalan Tanjung Wadung No. 17, Bawangan, Kecamatan Ploso, Kabupaten Jombang, Jawa Timur 61453. Sebagai pusat pemerintahan dan pelayanan masyarakat, Pemerintah Desa Bawangan berupaya meningkatkan pelayanan publik yang ramah, transparan, dan akuntabel demi kemajuan serta kesejahteraan warga.</p>
+            <dl className="agency-profile-details">
+              <div><dt>Alamat kantor</dt><dd>Jalan Tanjung Wadung No. 17, Bawangan, Ploso, Jombang, Jawa Timur 61453</dd></div>
+              <div><dt>Telepon</dt><dd><a href="tel:085231263646">0852-3126-3646</a></dd></div>
+              <div><dt>Email</dt><dd><a href="mailto:desabawanganmajubersama@gmail.com">desabawanganmajubersama@gmail.com</a></dd></div>
+              <div><dt>Luas wilayah</dt><dd>Angka yang diberikan: 1774 km² <small>Perlu konfirmasi kembali angka dan satuan luas sebelum ditetapkan sebagai data resmi.</small></dd></div>
+            </dl>
+            <div className="agency-regency-mark"><img src="https://desabawangan.id/logo/jombang.png" alt="Lambang Kabupaten Jombang" loading="lazy" /><span>Lambang Kabupaten Jombang</span></div>
+          </article>
+        </div>
+        <div className="agency-section-heading agency-vision-heading" id="visi-misi">
+          <p className="agency-kicker agency-kicker-green">ARAH PEMBANGUNAN</p>
+          <h2>Visi &amp; Misi Desa</h2>
+          <p>Fokus pada arah dan tujuan Desa Bawangan.</p>
+        </div>
+        <article className="agency-vision-card">
+          <span className="agency-profile-eyebrow">VISI DESA</span>
+          <blockquote>“Terwujudnya Desa Bawangan Yang Rukun dan Makmur Berlandaskan Moral Agama serta Terdepan Dalam Bidang Pertanian”</blockquote>
+        </article>
+        <div className="agency-mission-heading"><span className="agency-profile-eyebrow">MISI DESA</span><h3>Langkah untuk mewujudkan visi</h3></div>
+        <ol className="agency-mission-list">
+          <li>Mewujudkan dan mengembangkan kegiatan keagamaan untuk menambah keimanan dan ketakwaan kepada Tuhan Yang Maha Esa.</li>
+          <li>Mewujudkan dan mendorong kerukunan antarwarga maupun intern warga masyarakat di tengah perbedaan agama, keyakinan, organisasi, dan lainnya, dalam suasana saling menghargai dan menghormati.</li>
+          <li>Membangun dan meningkatkan hasil pertanian melalui penataan pengairan, perbaikan jalan sawah atau jalan usaha tani, pemupukan, dan pola tanam yang baik.</li>
+          <li>Menata Pemerintahan Desa Bawangan yang kompak dan bertanggung jawab dalam mengemban amanat masyarakat.</li>
+          <li>Meningkatkan pelayanan masyarakat secara terpadu dan serius.</li>
+          <li>Mencari dan menambah debit air untuk mencukupi kebutuhan pertanian.</li>
+          <li>Menumbuhkembangkan kelompok tani dan gabungan kelompok tani serta bekerja sama dengan HIPPA untuk memfasilitasi kebutuhan petani.</li>
+          <li>Menumbuhkembangkan usaha kecil dan menengah.</li>
+          <li>Membangun dan mendorong kemajuan pendidikan formal maupun informal yang mudah diakses seluruh warga, guna menghasilkan insan intelektual, inovatif, dan wirausahawan.</li>
+          <li>Membangun dan mendorong pengembangan serta optimalisasi sektor pertanian, perkebunan, peternakan, dan perikanan, baik pada tahap produksi maupun pengolahan hasilnya.</li>
+        </ol>
+        <div className="agency-anchor-grid">
+          <span id="pemerintahan">Pemerintahan Desa <small>Profil perangkat desa</small></span>
+          <span id="wilayah">Wilayah Desa <small>Informasi wilayah</small></span>
+          <span id="data-wilayah">Data Wilayah <small>Data resmi menyusul</small></span>
+          <span id="statistik">Statistik Desa <small>Data resmi menyusul</small></span>
+          <span id="data-penduduk">Data Penduduk <small>Data resmi menyusul</small></span>
+          <span id="data-sosial">Data Sosial <small>Data resmi menyusul</small></span>
+          <span id="produk-hukum">Produk Hukum <small>Dokumen resmi menyusul</small></span>
+        </div>
+      </div>
+    </section>
 
     <section className="agency-section" id="layanan">
       <div className="agency-container">
