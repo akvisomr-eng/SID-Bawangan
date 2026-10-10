@@ -102,9 +102,6 @@ export default function HomePage() {
       </div>
     </section>
 
-    </div>
-    </section>
-
     <section className="agency-section" id="pemerintahan">
       <div className="agency-container">
         <div className="agency-section-heading"><h2>Perangkat Desa</h2><p>Gunakan panah atau titik navigasi untuk melihat foto dan jabatan setiap perangkat Desa Bawangan.</p></div>
