@@ -175,11 +175,11 @@ export default function HomePage() {
         <div className="agency-anchor-grid">
           <span id="kepala-desa">Pemerintahan Desa <small>Profil kepala desa dan perangkat desa</small></span>
           <span id="wilayah">Wilayah Desa <small>Lokasi Desa Bawangan di Google Maps</small></span>
-          <span id="data-wilayah">Data Wilayah <small>Data resmi menyusul</small></span>
-          <span id="statistik">Statistik Desa <small>Data resmi menyusul</small></span>
+          <span>Data Wilayah <small>Data resmi menyusul</small></span>
+          <span>Statistik Desa <small>Data resmi menyusul</small></span>
           <span id="data-penduduk">Data Penduduk <small>Data resmi menyusul</small></span>
           <span id="data-sosial">Data Sosial <small>Data resmi menyusul</small></span>
-          <span id="produk-hukum">Produk Hukum <small>Dokumen resmi menyusul</small></span>
+          <span>Produk Hukum <small>Dokumen resmi menyusul</small></span>
         </div>
         <div className="agency-village-map" aria-labelledby="agency-village-map-title">
           <div className="agency-village-map-heading">
