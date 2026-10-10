@@ -91,6 +91,7 @@ export type Database = {
           id?: string
           role?: string
           updated_at?: string
+          email?: string | null
         }
         Relationships: []
       }
@@ -100,6 +101,7 @@ export type Database = {
     }
     Functions: {
       current_user_role: { Args: never; Returns: string }
+      admin_set_user_role: { Args: { target_user_id: string; new_role: string }; Returns: undefined }
     }
     Enums: {
       [_ in never]: never
