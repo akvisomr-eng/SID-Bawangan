@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import type { User } from '@supabase/supabase-js';
@@ -58,11 +60,11 @@ export default function AdminPage() {
   }
 
   if (loading) return <main className="admin-page"><div className="admin-loading">Memuat ruang kerja…</div></main>;
-  if (!supabase) return <main className="admin-page"><a href="/" className="back-link">← Website publik</a><section className="setup-notice"><span className="brand-mark">B</span><p className="eyebrow">KONFIGURASI DIPERLUKAN</p><h1>Hubungkan Supabase</h1><p>Isi NEXT_PUBLIC_SUPABASE_URL dan NEXT_PUBLIC_SUPABASE_ANON_KEY pada environment deployment untuk mengaktifkan ruang kerja.</p></section></main>;
+  if (!supabase) return <main className="admin-page"><Link href="/" className="back-link">← Website publik</Link><section className="setup-notice"><span className="brand-mark">B</span><p className="eyebrow">KONFIGURASI DIPERLUKAN</p><h1>Hubungkan Supabase</h1><p>Isi NEXT_PUBLIC_SUPABASE_URL dan NEXT_PUBLIC_SUPABASE_ANON_KEY pada environment deployment untuk mengaktifkan ruang kerja.</p></section></main>;
   if (!user) return <main className="admin-page"><section className="setup-notice"><span className="brand-mark">B</span><h1>Sesi admin tidak ditemukan</h1><p>Silakan masuk menggunakan akun resmi SID Bawangan.</p><a className="primary-link" href="/admin/login">Buka halaman login →</a></section></main>;
 
   return <main className="admin-page">
-    <header className="admin-topbar"><a className="brand" href="/"><span className="brand-mark">B</span><span><strong>SID BAWANGAN</strong><small>Ruang kerja pengelola</small></span></a><div className="admin-top-actions"><span className="signed-in">{user.email}</span><button className="button-quiet" onClick={()=>void signOut()}>Keluar</button></div></header>
+    <header className="admin-topbar"><Link className="brand" href="/"><span className="brand-mark">B</span><span><strong>SID BAWANGAN</strong><small>Ruang kerja pengelola</small></span></Link><div className="admin-top-actions"><span className="signed-in">{user.email}</span><button className="button-quiet" onClick={()=>void signOut()}>Keluar</button></div></header>
     <section className="admin-heading"><div><p className="eyebrow">PUSAT KENDALI</p><h1>Ruang kerja desa</h1><p>Kelola informasi sekali, tampilkan pada website publik dari basis data yang sama.</p></div><div className="admin-stats"><div><strong>{posts.length}</strong><span>Total konten</span></div><div><strong>{posts.filter(p=>p.status==='published').length}</strong><span>Terbit</span></div><div><strong>{posts.filter(p=>p.status==='draft').length}</strong><span>Draf</span></div></div></section>
     {message && <div className="status-message" role="status">{message}</div>}
     <div className="workspace-grid"><section className="editor-panel"><div className="panel-heading"><div><p className="eyebrow">EDITOR KONTEN</p><h2>Buat konten baru</h2></div><span className="draft-chip">DRAF</span></div>
