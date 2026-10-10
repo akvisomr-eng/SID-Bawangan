@@ -90,7 +90,7 @@ Deno.serve(async (request: Request) => {
     const eventResponse = await fetch(`${supabaseUrl}/rest/v1/ai_companion_events`, {
       method: "POST",
       headers: { apikey: serviceRoleKey, Authorization: `Bearer ${serviceRoleKey}`, "Content-Type": "application/json", Prefer: "return=minimal" },
-      body: JSON.stringify({ event_type: "question", question_redacted: redact(question), page_path: typeof payload.pagePath === "string" ? payload.pagePath.slice(0, 160) : "/", resolved: true }),
+      body: JSON.stringify({ event_type: "question", question_redacted: redact(question), page_path: typeof payload.pagePath === "string" ? payload.pagePath.slice(0, 160) : "/", resolved: null }),
     });
     if (!eventResponse.ok) console.warn("AI learning event not stored; verify ai_companion_events setup.");
   }
