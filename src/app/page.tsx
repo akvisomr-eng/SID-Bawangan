@@ -178,7 +178,7 @@ export default function HomePage() {
       </div>
     </section>
 
-    <section className="agency-section agency-about" id="profil">
+    <section className="agency-section agency-about" id="tentang-desa">
       <div className="agency-container agency-about-grid"><div><p className="agency-kicker agency-kicker-green">MENGENAL DESA</p><h2>Bersama membangun<br />Desa Bawangan.</h2></div><div><p>Portal ini menjadi titik awal akses informasi publik Desa Bawangan, Kecamatan Ploso, Kabupaten Jombang. Profil, potensi, kegiatan, dan informasi wilayah akan dilengkapi berdasarkan data resmi pemerintah desa.</p><a className="agency-text-link" href="#dokumen">JELAJAHI INFORMASI <i className="fa-solid fa-arrow-right" /></a></div></div>
       <div className="agency-container agency-timeline"><div className="agency-timeline-item"><span><i className="fa-solid fa-bullhorn" /></span><h3>Informasi Terbuka</h3><p>Berita dan pengumuman desa dalam satu portal.</p></div><div className="agency-timeline-item"><span><i className="fa-solid fa-people-group" /></span><h3>Warga Terhubung</h3><p>Informasi yang mudah dijangkau dari berbagai perangkat.</p></div><div className="agency-timeline-item"><span><i className="fa-solid fa-shield-halved" /></span><h3>Data Terverifikasi</h3><p>Informasi resmi ditampilkan setelah tersedia dan diperiksa.</p></div></div>
     </section>
