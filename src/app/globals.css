@@ -225,3 +225,27 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
  .agency-nav-dropdown>summary i{margin-left:auto;font-size:11px}
  .agency-dropdown-panel{max-height:none;overflow:visible}
 }
+
+/* Village history, profile, vision and mission */
+.agency-profile-layout{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:22px;align-items:stretch}
+.agency-profile-card,.agency-vision-card{padding:clamp(22px,3vw,34px);border:1px solid #e5e9e3;background:#fff;box-shadow:0 14px 36px rgba(24,42,29,.045)}
+.agency-profile-card h3,.agency-mission-heading h3{margin:10px 0 15px;font-size:clamp(21px,2.5vw,28px);font-weight:800;letter-spacing:-.03em}
+.agency-profile-card>p{color:var(--agency-muted);font-family:'Roboto Slab',serif;font-size:13px;line-height:1.95}
+.agency-profile-eyebrow{display:inline-block;color:#8c7200;font-size:10px;font-weight:800;letter-spacing:.15em}
+.agency-profile-details{margin:22px 0 0}
+.agency-profile-details>div{padding:13px 0;border-top:1px solid #edf0eb}
+.agency-profile-details dt{margin-bottom:5px;color:#667168;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.agency-profile-details dd{margin:0;color:#27342b;font-size:12px;line-height:1.8;overflow-wrap:anywhere}
+.agency-profile-details dd a{color:#365c40;text-decoration:underline;text-underline-offset:3px}
+.agency-profile-details dd small{display:block;margin-top:5px;color:#8a6d20;font-size:10px;line-height:1.7}
+.agency-regency-mark{display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:18px;border-top:1px solid #edf0eb;color:var(--agency-muted);font-size:11px;font-weight:700}
+.agency-regency-mark img{width:52px;height:58px;object-fit:contain}
+.agency-vision-heading{margin-top:75px}
+.agency-vision-card{max-width:980px;margin:0 auto;background:#1d2922;color:#fff;border:0}
+.agency-vision-card blockquote{margin:14px 0 0;font-size:clamp(20px,3vw,30px);font-weight:700;line-height:1.65;letter-spacing:-.025em}
+.agency-mission-heading{max-width:980px;margin:40px auto 18px}
+.agency-mission-heading h3{margin-top:9px}
+.agency-mission-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;max-width:980px;margin:0 auto;padding:0;list-style:none;counter-reset:mission}
+.agency-mission-list li{position:relative;min-height:92px;padding:20px 12px 20px 52px;border-top:1px solid #e5e9e3;color:#48534a;font-family:'Roboto Slab',serif;font-size:12px;line-height:1.9;counter-increment:mission}
+.agency-mission-list li:before{content:counter(mission,decimal-leading-zero);position:absolute;left:0;top:18px;color:#9a7c08;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:800}
+@media(max-width:700px){.agency-profile-layout{grid-template-columns:1fr}.agency-vision-heading{margin-top:52px}.agency-mission-list{grid-template-columns:1fr}.agency-mission-list li{min-height:0;padding-top:17px;padding-bottom:17px}.agency-mission-list li:before{top:15px}}
