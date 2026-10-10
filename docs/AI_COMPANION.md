@@ -9,7 +9,7 @@ Widget AI Companion tampil pada seluruh halaman publik dan panel yang memakai ro
 - `supabase/sql/ai_companion_learning.sql`: tabel sinyal peningkatan layanan dengan RLS ketat dan pencatatan pertanyaan hanya setelah persetujuan eksplisit.
 
 ## Konfigurasi Edge Function
-Konfigurasikan secrets berikut di Supabase, bukan di frontend:
+Fungsi ini dipublikasikan tanpa JWT gateway agar pengunjung website tidak diwajibkan login. Karena itu fungsi hanya boleh membaca konten berstatus published, tidak boleh menerima perintah tulis, dan harus memiliki pembatasan biaya/permintaan. Fungsi saat ini memiliki pembatas sederhana per-instance; tambahkan rate limit durable di gateway/provider sebelum promosi luas. Origin default dibatasi ke `https://akvisomr-eng.github.io`; set `ALLOWED_ORIGIN` jika domain produksi berubah.\n\nKonfigurasikan secrets berikut di Supabase, bukan di frontend:
 - `OPENAI_API_KEY` — wajib; jangan pernah memakai awalan NEXT_PUBLIC.
 - `OPENAI_MODEL` — opsional, default `gpt-4o-mini`.
 - `SUPABASE_SERVICE_ROLE_KEY` — opsional untuk pencatatan pertanyaan yang disetujui; hanya untuk Edge Function.
@@ -20,7 +20,7 @@ Supabase menyediakan `SUPABASE_URL` dan `SUPABASE_ANON_KEY` di runtime Edge Func
 ## Aktivasi
 1. Jalankan SQL dari `supabase/sql/ai_companion_learning.sql` di SQL Editor pada proyek Supabase SID Bawangan.
 2. Deploy folder `supabase/functions/ai-companion` dengan Supabase CLI atau Dashboard.
-3. Tambahkan secrets yang dibutuhkan dan batasi origin.
+3. Tambahkan secrets yang dibutuhkan dan batasi origin. Tanpa `OPENAI_API_KEY`, fungsi aktif tetapi akan mengembalikan status layanan belum dikonfigurasi.
 4. Pastikan tabel `posts` dan `portal_modules` hanya mengembalikan konten publik yang telah dipublikasikan untuk kunci anon.
 5. Build dan uji GitHub Pages: chat, sumber jawaban, mikrofon dengan izin pengguna, pembacaan suara, tampilan mobile, dan kegagalan provider.
 6. Tetapkan kebijakan retensi dan proses penghapusan untuk event pembelajaran sebelum mengaktifkan pengumpulan pertanyaan.
