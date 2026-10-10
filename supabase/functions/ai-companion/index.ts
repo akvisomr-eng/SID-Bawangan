@@ -48,7 +48,7 @@ const curatedKnowledge: CuratedItem[] = [
 {title:"Lambang Kabupaten Jombang",summary:"Referensi lambang Kabupaten Jombang merujuk Perda Kabupaten Djombang Nomor 5 Tahun 1971.",content:"Referensi lambang Kabupaten Jombang: https://commons.wikimedia.org/wiki/File:Seal_of_Jombang_Regency.svg . Dasar hukum lambang daerah, Peraturan Daerah Kabupaten Djombang Nomor 5 Tahun 1971, di JDIH Kabupaten Jombang: https://jdih.jombangkab.go.id/dokumen/detail/peraturan-daerah-kabupaten-djombang-nomor-5-tahun-1971-tentang-lambang-daerah-kabupaten-djombang-4659 .",keywords:["logo","lambang","jombang","kabupaten","simbol","identitas visual"]}
 ];
 function smallTalkAnswer(question: string): { answer: string; sources: string[]; mode: string } | null {
- const q=question.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").trim();
+ const q=question.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
  const has=(...patterns:string[])=>patterns.some((p)=>q.includes(p));
  if(has("apa kabar","gimana kabar","bagaimana kabar")) return {answer:"Saya baik, terima kasih sudah menyapa! 😊 Saya siap menemani ngobrol atau membantu mencari informasi Desa Bawangan. Kalau kamu sendiri, bagaimana kabarnya hari ini?",sources:[],mode:"small_talk"};
  if(/^(halo|hai|haii|hello|helo|hi|pagi|selamat pagi|selamat siang|selamat sore|selamat malam|assalamualaikum|assalamu'alaikum)[!.\\s]*$/.test(q)) return {answer:"Halo! 😊 Apa kabar? Saya Asisten Desa Bawangan. Kita bisa ngobrol santai, membahas keseharian, atau mencari informasi tentang desa dan layanan publik. Ada yang ingin kamu ceritakan?",sources:[],mode:"small_talk"};
