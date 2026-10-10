@@ -61,7 +61,7 @@ export default function AdminPage() {
 
   if (loading) return <main className="admin-page"><div className="admin-loading">Memuat ruang kerja…</div></main>;
   if (!supabase) return <main className="admin-page"><Link href="/" className="back-link">← Website publik</Link><section className="setup-notice"><span className="brand-mark">B</span><p className="eyebrow">KONFIGURASI DIPERLUKAN</p><h1>Hubungkan Supabase</h1><p>Isi NEXT_PUBLIC_SUPABASE_URL dan NEXT_PUBLIC_SUPABASE_ANON_KEY pada environment deployment untuk mengaktifkan ruang kerja.</p></section></main>;
-  if (!user) return <main className="admin-page"><section className="setup-notice"><span className="brand-mark">B</span><h1>Sesi admin tidak ditemukan</h1><p>Silakan masuk menggunakan akun resmi SID Bawangan.</p><a className="primary-link" href="/admin/login">Buka halaman login →</a></section></main>;
+  if (!user) return <main className="admin-page"><section className="setup-notice"><span className="brand-mark">B</span><h1>Sesi admin tidak ditemukan</h1><p>Silakan masuk menggunakan akun resmi SID Bawangan.</p><Link className="primary-link" href="/admin/login">Buka halaman login →</Link></section></main>;
 
   return <main className="admin-page">
     <header className="admin-topbar"><Link className="brand" href="/"><span className="brand-mark">B</span><span><strong>SID BAWANGAN</strong><small>Ruang kerja pengelola</small></span></Link><div className="admin-top-actions"><span className="signed-in">{user.email}</span><button className="button-quiet" onClick={()=>void signOut()}>Keluar</button></div></header>
