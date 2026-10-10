@@ -34,6 +34,7 @@ export default function PortalModulesPage() {
   const [dataText, setDataText] = useState('{}');
   const selected = modules.find((item) => item.id === selectedId) ?? null;
   const canPublish = role === 'admin' || role === 'publisher';
+  const canEdit = role === 'admin' || role === 'publisher' || role === 'editor';
 
   const load = useCallback(async () => {
     if (!supabase) { setLoading(false); return; }
@@ -93,7 +94,8 @@ export default function PortalModulesPage() {
   if (loading) return <main className="admin-page"><div className="admin-loading">Memuat katalog modul…</div></main>;
   if (!supabase) return <main className="admin-page"><section className="setup-notice"><h1>Supabase belum terhubung</h1><Link href="/admin">Kembali ke ruang kerja</Link></section></main>;
 
-  return <main className="admin-page">
+  return <main className="admin-page admin-page-with-sidebar">
+    <AdminSidebar />
     <header className="admin-topbar"><Link className="brand" href="/admin"><span className="brand-mark">B</span><span><strong>SID BAWANGAN</strong><small>Pengelolaan modul portal</small></span></Link><div className="admin-top-actions"><span className="signed-in">Peran: {role || 'belum ditetapkan'}</span><Link className="button-quiet" href="/">Lihat website ↗</Link></div></header>
     <section className="admin-heading"><div><p className="eyebrow">KATALOG KONTEN</p><h1>Modul website desa</h1><p>Semua menu sudah memiliki kerangka data. Pilih modul, isi informasi terverifikasi dan data terstruktur, simpan sebagai draf, lalu publikasikan sesuai kewenangan.</p></div><div className="admin-stats"><div><strong>{modules.length}</strong><span>Modul disiapkan</span></div><div><strong>{modules.filter((item) => item.status === 'published').length}</strong><span>Terbit</span></div><div><strong>{modules.filter((item) => item.status === 'draft').length}</strong><span>Draf</span></div></div></section>
     {message && <div className="status-message" role="status">{message}</div>}
@@ -104,13 +106,14 @@ export default function PortalModulesPage() {
       <section className="editor-panel"><div className="panel-heading"><div><p className="eyebrow">EDITOR MODUL</p><h2>{selected?.title ?? 'Pilih modul'}</h2></div>{selected && <span className={'status-pill ' + selected.status}>{prettyStatus[selected.status]}</span>}</div>
         {!selected ? <p>Tidak ada modul yang tersedia.</p> : <>
           <p className="login-copy">Kunci modul: <code>{selected.module_key}</code>. Kategori dan kunci dipertahankan agar menu tidak terputus.</p>
-          <label htmlFor="module-title">Judul tampil</label><input id="module-title" value={title} maxLength={180} onChange={(event) => setTitle(event.target.value)} />
-          <label htmlFor="module-summary">Ringkasan</label><textarea id="module-summary" rows={3} maxLength={800} value={summary} onChange={(event) => setSummary(event.target.value)} placeholder="Ringkasan singkat untuk pengunjung" />
-          <label htmlFor="module-body">Isi informasi</label><textarea id="module-body" rows={7} value={body} onChange={(event) => setBody(event.target.value)} placeholder="Masukkan narasi resmi, prosedur, sumber, atau keterangan terverifikasi." />
-          <label htmlFor="module-data">Data terstruktur (JSON)</label><textarea id="module-data" rows={12} value={dataText} onChange={(event) => setDataText(event.target.value)} spellCheck={false} className="module-json-editor" />
+          <label htmlFor="module-title">Judul tampil</label><input id="module-title" disabled={!canEdit} value={title} maxLength={180} onChange={(event) => setTitle(event.target.value)} />
+          <label htmlFor="module-summary">Ringkasan</label><textarea id="module-summary" disabled={!canEdit} rows={3} maxLength={800} value={summary} onChange={(event) => setSummary(event.target.value)} placeholder="Ringkasan singkat untuk pengunjung" />
+          <label htmlFor="module-body">Isi informasi</label><textarea id="module-body" disabled={!canEdit} rows={7} value={body} onChange={(event) => setBody(event.target.value)} placeholder="Masukkan narasi resmi, prosedur, sumber, atau keterangan terverifikasi." />
+          <label htmlFor="module-data">Data terstruktur (JSON)</label><textarea id="module-data" disabled={!canEdit} rows={12} value={dataText} onChange={(event) => setDataText(event.target.value)} spellCheck={false} className="module-json-editor" />
           <p className="agent-disclaimer">Gunakan struktur JSON yang disediakan sebagai cetakan awal. Isi angka hanya dari sumber resmi; jangan memasukkan NIK, nomor KK, alamat pribadi, atau daftar penerima bantuan ke konten publik.</p>
-          <div className="editor-actions"><button className="button-secondary" disabled={busy} onClick={() => void save('draft')}>{busy ? 'Menyimpan…' : 'Simpan draf'}</button><button className="button-primary" disabled={busy || !canPublish} title={!canPublish ? 'Perlu peran publisher atau admin' : undefined} onClick={() => void save('published')}>{busy ? 'Memproses…' : 'Publikasikan modul'}</button></div>
-          {!canPublish && <small className="notice">Akun dengan peran editor dapat menyiapkan draf. Publikasi dilakukan oleh publisher atau admin.</small>}
+          <div className="editor-actions"><button className="button-secondary" disabled={busy || !canEdit} onClick={() => void save('draft')}>{busy ? 'Menyimpan…' : 'Simpan draf'}</button><button className="button-primary" disabled={busy || !canPublish} title={!canPublish ? 'Perlu peran publisher atau admin' : undefined} onClick={() => void save('published')}>{busy ? 'Memproses…' : 'Publikasikan modul'}</button></div>
+          {!canEdit && <small className="notice">Akun viewer hanya memiliki akses baca. Hubungi administrator jika perlu mengubah konten.</small>}
+          {canEdit && !canPublish && <small className="notice">Akun editor dapat menyiapkan draf. Publikasi dilakukan oleh publisher atau admin.</small>}
         </>}
       </section>
     </div>
