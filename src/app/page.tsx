@@ -35,7 +35,7 @@ export default function HomePage() {
   return <main className="agency-site" id="top">
     <nav className="agency-nav" aria-label="Navigasi utama">
       <div className="agency-container agency-nav-inner">
-        <a className="agency-brand" href="#top" aria-label="Bawangan Maju Bersama beranda"><span className="agency-brand-symbol">B</span><span>BAWANGAN MAJU BERSAMA</span></a>
+        <a className="agency-brand" href="#top" aria-label="Bawangan Maju Bersama beranda"><img className="agency-brand-logo" src="https://desabawangan.id/logo/jombang.png" alt="Lambang Kabupaten Jombang" /><span>BAWANGAN MAJU BERSAMA</span></a>
         <button className="agency-menu-toggle" type="button" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>MENU <i className="fa-solid fa-bars" /></button>
         <div className={`agency-nav-links ${menuOpen ? 'is-open' : ''}`}>
           <a href="#top" onClick={() => setMenuOpen(false)}>BERANDA</a>
@@ -58,7 +58,7 @@ export default function HomePage() {
       </div>
     </nav>
 
-    <header className="agency-masthead">
+    <header className="agency-masthead" style={{ backgroundImage: "linear-gradient(90deg,rgba(12,24,18,.78),rgba(12,24,18,.34)),url(https://desabawangan.id/storage/slides/BdoQSC5un52Mu8MoEUkyyuDPQRuJTrHCuWjT3gK7.jpg)" }}>
       <div className="agency-container agency-masthead-content">
         <p className="agency-kicker">WEBSITE RESMI PEMERINTAH DESA</p>
         <h1>Bawangan Maju<br />Bersama</h1>
@@ -80,10 +80,46 @@ export default function HomePage() {
     <section className="agency-section agency-section-muted" id="berita">
       <div className="agency-container">
         <div className="agency-section-heading"><h2>Berita & Informasi</h2><p>Kabar dan informasi yang diterbitkan melalui sistem informasi desa.</p></div>
-        {featured && <article className="agency-featured-news"><div className="agency-featured-visual"><span className="agency-visual-overline">KABAR BAWANGAN</span><span className="agency-visual-letter">B.</span><span className="agency-visual-caption">INFORMASI RESMI DESA</span></div><div className="agency-featured-copy"><span className="agency-tag">{labels[featured.category]}</span><p className="agency-date">{formatDate(featured.published_at)}</p><h3>{featured.title}</h3><p>{featured.summary || 'Baca informasi lengkap yang diterbitkan oleh Pemerintah Desa Bawangan.'}</p><Link className="agency-text-link" href={`/informasi?slug=${encodeURIComponent(featured.slug)}`}>BACA SELENGKAPNYA <i className="fa-solid fa-arrow-right" /></Link></div></article>}
-        <div className="agency-news-grid">{posts.slice(featured ? 1 : 0).map(post => <article className="agency-news-card" key={post.id}><span className="agency-tag">{labels[post.category]}</span><p className="agency-date">{formatDate(post.published_at)}</p><h3>{post.title}</h3><p>{post.summary || 'Informasi resmi dari Pemerintah Desa Bawangan.'}</p><Link className="agency-text-link" href={`/informasi?slug=${encodeURIComponent(post.slug)}`}>BACA <i className="fa-solid fa-arrow-right" /></Link></article>)}</div>
+        {featured && <article className="agency-featured-news"><div className="agency-featured-visual agency-featured-photo"><img src="https://desabawangan.id/storage/news/LlmkK7KqKcRCf3a93VhWEFlEhSFZi2HUapdFLonG.jpg" alt="Foto berita dari portal Desa Bawangan" loading="lazy" /><span className="agency-visual-overline">KABAR BAWANGAN</span><span className="agency-visual-caption">SUMBER: DESABAWANGAN.ID</span></div><div className="agency-featured-copy"><span className="agency-tag">{labels[featured.category]}</span><p className="agency-date">{formatDate(featured.published_at)}</p><h3>{featured.title}</h3><p>{featured.summary || 'Baca informasi lengkap yang diterbitkan oleh Pemerintah Desa Bawangan.'}</p><Link className="agency-text-link" href={`/informasi?slug=${encodeURIComponent(featured.slug)}`}>BACA SELENGKAPNYA <i className="fa-solid fa-arrow-right" /></Link></div></article>}
+        <div className="agency-news-grid">{posts.slice(featured ? 1 : 0).map((post, index) => <article className="agency-news-card" key={post.id}><img className="agency-news-photo" src={["https://desabawangan.id/storage/news/cBDG0yR5N8SceueKo3BzS8eLL5RqnAPeNAiiqidl.jpg","https://desabawangan.id/storage/news/nhgkuOQkgTLwfvE0EFuU6EV3c3cZbWz0jLE2pmWm.jpg"][index % 2]} alt="Foto berita dari portal Desa Bawangan" loading="lazy" /><span className="agency-tag">{labels[post.category]}</span><p className="agency-date">{formatDate(post.published_at)}</p><h3>{post.title}</h3><p>{post.summary || 'Informasi resmi dari Pemerintah Desa Bawangan.'}</p><Link className="agency-text-link" href={`/informasi?slug=${encodeURIComponent(post.slug)}`}>BACA <i className="fa-solid fa-arrow-right" /></Link></article>)}</div>
         {loaded && posts.length === 0 && <div className="agency-empty"><i className="fa-regular fa-newspaper" /><h3>Informasi terbaru sedang disiapkan</h3><p>Belum ada berita yang dipublikasikan. Informasi akan muncul di sini setelah diperiksa dan diterbitkan oleh pengelola desa.</p></div>}
         {!loaded && <p className="agency-loading">Memuat informasi terbaru…</p>}
+      </div>
+    </section>
+
+    <section className="agency-section agency-section-muted agency-source-gallery" id="galeri">
+      <div className="agency-container">
+        <div className="agency-section-heading"><h2>Galeri Desa</h2><p>Foto dan visual Desa Bawangan yang dirujuk dari portal desabawangan.id.</p></div>
+        <div className="agency-gallery-grid">
+          <a href="https://desabawangan.id/storage/galleries/WFjjzaz9t7CHVQUDjOBWzLhRaXq3b7sVhb7c90bH.jpg" target="_blank" rel="noreferrer"><img src="https://desabawangan.id/storage/galleries/WFjjzaz9t7CHVQUDjOBWzLhRaXq3b7sVhb7c90bH.jpg" alt="Foto galeri Desa Bawangan" loading="lazy" /><span>Galeri Desa Bawangan</span></a>
+          <a href="https://desabawangan.id/storage/galleries/z1wMDhpPLhHUEX5jf9zArWzXONj7JpyVY0etUe7F.jpg" target="_blank" rel="noreferrer"><img src="https://desabawangan.id/storage/galleries/z1wMDhpPLhHUEX5jf9zArWzXONj7JpyVY0etUe7F.jpg" alt="Foto kegiatan atau lingkungan Desa Bawangan" loading="lazy" /><span>Kegiatan dan lingkungan desa</span></a>
+          <a href="https://desabawangan.id/storage/slides/p0loOAiW3cEsC6fJpsDD9PrrGHO3hIsIsy0FQMRt.jpg" target="_blank" rel="noreferrer"><img src="https://desabawangan.id/storage/slides/p0loOAiW3cEsC6fJpsDD9PrrGHO3hIsIsy0FQMRt.jpg" alt="Foto banner dari portal Desa Bawangan" loading="lazy" /><span>Visual portal desa</span></a>
+          <a href="https://desabawangan.id/storage/slides/rr9JLb8dQYa7IpkuCftmPKQBSZZA9tNL5ivp0WSn.jpg" target="_blank" rel="noreferrer"><img src="https://desabawangan.id/storage/slides/rr9JLb8dQYa7IpkuCftmPKQBSZZA9tNL5ivp0WSn.jpg" alt="Foto banner kedua dari portal Desa Bawangan" loading="lazy" /><span>Informasi visual desa</span></a>
+        </div>
+        <p className="agency-source-note">Sumber gambar: <a href="https://desabawangan.id/" target="_blank" rel="noreferrer">desabawangan.id</a>. Gambar saat ini ditampilkan dari alamat sumber; belum disalin ke penyimpanan repositori.</p>
+      </div>
+    </section>
+
+    <section className="agency-section" id="pemerintahan">
+      <div className="agency-container">
+        <div className="agency-section-heading"><h2>Perangkat Desa</h2><p>Daftar nama, jabatan, dan foto berdasarkan informasi yang Anda berikan dari portal desabawangan.id.</p></div>
+        <div className="agency-leaders-grid">
+          {[
+            {name:'Bakhtiar Efendi, S.H',role:'Kepala Desa',image:'https://desabawangan.id/storage/leaders/OcR5odT577lIy6cS8NuWjyhG5hy50wVP0C97fAFQ.png'},
+            {name:'Teguh Wahyudi',role:'Sekretaris Desa',image:'https://desabawangan.id/storage/leaders/L2B7UQCXEDGCced5o57GMaZZKkySt8H1IupOm7BP.jpg'},
+            {name:'Suliswanto',role:'Kaur Keuangan',image:'https://desabawangan.id/storage/leaders/vrSmPmJbN4gn6haqqxyVAYYOALGSRbiS1nmETTXC.jpg'},
+            {name:'Mustika Dwi Anjar Kurnia S',role:'Kaur Umum & Tata Usaha',image:'https://desabawangan.id/storage/leaders/NWERPzLtPwJShWkr5fb9RtpGXBokh8OYuigmJP4j.png'},
+            {name:'Bagas Aprilyanto',role:'Kaur Perencanaan',image:'https://desabawangan.id/storage/leaders/qQOY2BY8XkrjeHpf62JSGotUDT2zTLsOEWc4OhGe.png'},
+            {name:'Tuhuningtyas',role:'Kasi Pemerintahan',image:'https://desabawangan.id/storage/leaders/akREa2N5qBdBzyRFxoZY4XpcvO0ZRgXbv0OrSmfA.png'},
+            {name:"Mu'in",role:'Kasi Kesejahteraan',image:'https://desabawangan.id/storage/leaders/oRxuBpdye7mBaLVV6NJV0SHbKPJGG9vJz24Aqx6f.png'},
+            {name:'Dartik',role:'Kasi Pelayanan',image:'https://desabawangan.id/storage/leaders/2ifighQXLnlwV00BcuILrqrvW6lLFrJKuHPhVayL.png'},
+            {name:'Hadi Mulyono',role:'Kasun Bawangan',image:'https://desabawangan.id/storage/leaders/U565k6y8Ja8oUld8o0TFrmzzMdNch0vEKo7nNLUZ.png'},
+            {name:'Eko Subekti',role:'Kasun Ngumpak',image:'https://desabawangan.id/storage/leaders/acVCyNkECCJ6leUYNXq8A0fHImIsCJBScQPxrABw.png'},
+            {name:'Lisanah',role:'Kasun Jabon',image:'https://desabawangan.id/storage/leaders/xEWKzLuIvD9ZOOhTLtd62hQNtoc0Z0VVJDWQclpN.png'},
+            {name:'Bambang Indramanto, SE.',role:'Kasun Kesamben',image:'https://desabawangan.id/storage/leaders/NAEXO2Ny4nctDA23wllbE8e9VRC1PtE09X3pfVdt.png'},
+          ].map(person => <article className="agency-leader-card" key={person.name}><img src={person.image} alt={`Foto ${person.name}`} loading="lazy" /><div><h3>{person.name}</h3><p>{person.role}</p></div></article>)}
+        </div>
+        <p className="agency-source-note">Nama dan jabatan mengikuti daftar yang diberikan. Mohon verifikasi kembali kepada pemerintah desa sebelum dijadikan publikasi final.</p>
       </div>
     </section>
 
@@ -104,6 +140,6 @@ export default function HomePage() {
 
     <section className="agency-section agency-participation" id="partisipasi"><span id="pengaduan" /><span id="layanan-administrasi" /><span id="laporan-pembangunan" /><span id="anti-korupsi" /><div className="agency-container agency-participation-inner"><span className="agency-participation-icon"><i className="fa-solid fa-comments" /></span><div><h2>Partisipasi warga penting.</h2><p>Fitur aspirasi dan partisipasi masyarakat akan dikembangkan secara bertahap setelah alur pengelolaan dan penanggung jawab ditetapkan.</p></div></div></section>
 
-    <footer className="agency-footer"><div className="agency-container agency-footer-inner"><a className="agency-brand agency-footer-brand" href="#top"><span className="agency-brand-symbol">B</span><span>BAWANGAN MAJU BERSAMA</span></a><p>© {new Date().getFullYear()} Pemerintah Desa Bawangan<br />Kecamatan Ploso · Kabupaten Jombang</p><a className="agency-back-top" href="#top" aria-label="Kembali ke atas"><i className="fa-solid fa-arrow-up" /></a></div><div className="agency-container agency-credit">PORTAL INFORMASI PUBLIK DESA BAWANGAN</div></footer>
+    <footer className="agency-footer"><div className="agency-container agency-footer-inner"><a className="agency-brand agency-footer-brand" href="#top"><img className="agency-brand-logo" src="https://desabawangan.id/logo/jombang.png" alt="Lambang Kabupaten Jombang" /><span>BAWANGAN MAJU BERSAMA</span></a><p>© {new Date().getFullYear()} Pemerintah Desa Bawangan<br />Kecamatan Ploso · Kabupaten Jombang</p><a className="agency-back-top" href="#top" aria-label="Kembali ke atas"><i className="fa-solid fa-arrow-up" /></a></div><div className="agency-container agency-credit">PORTAL INFORMASI PUBLIK DESA BAWANGAN</div></footer>
   </main>;
 }
