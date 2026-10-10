@@ -21,6 +21,7 @@ export default function HomePage() {
   const [posts, setPosts] = useState<PublicPost[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLeader, setActiveLeader] = useState(0);
 
   useEffect(() => {
     let active = true;
@@ -31,6 +32,21 @@ export default function HomePage() {
     return () => { active = false; };
   }, [supabase]);
 
+  const leaders = [
+            {name:'Bakhtiar Efendi, S.H',role:'Kepala Desa',image:'https://desabawangan.id/storage/leaders/OcR5odT577lIy6cS8NuWjyhG5hy50wVP0C97fAFQ.png'},
+            {name:'Teguh Wahyudi',role:'Sekretaris Desa',image:'https://desabawangan.id/storage/leaders/L2B7UQCXEDGCced5o57GMaZZKkySt8H1IupOm7BP.jpg'},
+            {name:'Suliswanto',role:'Kaur Keuangan',image:'https://desabawangan.id/storage/leaders/vrSmPmJbN4gn6haqqxyVAYYOALGSRbiS1nmETTXC.jpg'},
+            {name:'Mustika Dwi Anjar Kurnia S',role:'Kaur Umum & Tata Usaha',image:'https://desabawangan.id/storage/leaders/NWERPzLtPwJShWkr5fb9RtpGXBokh8OYuigmJP4j.png'},
+            {name:'Bagas Aprilyanto',role:'Kaur Perencanaan',image:'https://desabawangan.id/storage/leaders/qQOY2BY8XkrjeHpf62JSGotUDT2zTLsOEWc4OhGe.png'},
+            {name:'Tuhuningtyas',role:'Kasi Pemerintahan',image:'https://desabawangan.id/storage/leaders/akREa2N5qBdBzyRFxoZY4XpcvO0ZRgXbv0OrSmfA.png'},
+            {name:"Mu'in",role:'Kasi Kesejahteraan',image:'https://desabawangan.id/storage/leaders/oRxuBpdye7mBaLVV6NJV0SHbKPJGG9vJz24Aqx6f.png'},
+            {name:'Dartik',role:'Kasi Pelayanan',image:'https://desabawangan.id/storage/leaders/2ifighQXLnlwV00BcuILrqrvW6lLFrJKuHPhVayL.png'},
+            {name:'Hadi Mulyono',role:'Kasun Bawangan',image:'https://desabawangan.id/storage/leaders/U565k6y8Ja8oUld8o0TFrmzzMdNch0vEKo7nNLUZ.png'},
+            {name:'Eko Subekti',role:'Kasun Ngumpak',image:'https://desabawangan.id/storage/leaders/acVCyNkECCJ6leUYNXq8A0fHImIsCJBScQPxrABw.png'},
+            {name:'Lisanah',role:'Kasun Jabon',image:'https://desabawangan.id/storage/leaders/xEWKzLuIvD9ZOOhTLtd62hQNtoc0Z0VVJDWQclpN.png'},
+            {name:'Bambang Indramanto, SE.',role:'Kasun Kesamben',image:'https://desabawangan.id/storage/leaders/NAEXO2Ny4nctDA23wllbE8e9VRC1PtE09X3pfVdt.png'},
+
+  ];
   const featured = posts[0];
   return <main className="agency-site" id="top">
     <nav className="agency-nav" aria-label="Navigasi utama">
@@ -87,27 +103,25 @@ export default function HomePage() {
       </div>
     </section>
 
-    <section className="agency-section agency-section-muted agency-source-gallery" id="galeri">
+    <section className="agency-section agency-section-    <section className="agency-section" id="pemerintahan">
       <div className="agency-container">
-        <div className="agency-section-heading"><h2>Galeri Desa</h2><p>Foto dan visual Desa Bawangan yang dirujuk dari portal desabawangan.id.</p></div>
-        <div className="agency-gallery-grid">
-          <a href="https://desabawangan.id/storage/galleries/WFjjzaz9t7CHVQUDjOBWzLhRaXq3b7sVhb7c90bH.jpg" target="_blank" rel="noreferrer"><img src="https://desabawangan.id/storage/galleries/WFjjzaz9t7CHVQUDjOBWzLhRaXq3b7sVhb7c90bH.jpg" alt="Foto galeri Desa Bawangan" loading="lazy" /><span>Galeri Desa Bawangan</span></a>
-          <a href="https://desabawangan.id/storage/galleries/z1wMDhpPLhHUEX5jf9zArWzXONj7JpyVY0etUe7F.jpg" target="_blank" rel="noreferrer"><img src="https://desabawangan.id/storage/galleries/z1wMDhpPLhHUEX5jf9zArWzXONj7JpyVY0etUe7F.jpg" alt="Foto kegiatan atau lingkungan Desa Bawangan" loading="lazy" /><span>Kegiatan dan lingkungan desa</span></a>
-          <a href="https://desabawangan.id/storage/slides/p0loOAiW3cEsC6fJpsDD9PrrGHO3hIsIsy0FQMRt.jpg" target="_blank" rel="noreferrer"><img src="https://desabawangan.id/storage/slides/p0loOAiW3cEsC6fJpsDD9PrrGHO3hIsIsy0FQMRt.jpg" alt="Foto banner dari portal Desa Bawangan" loading="lazy" /><span>Visual portal desa</span></a>
-          <a href="https://desabawangan.id/storage/slides/rr9JLb8dQYa7IpkuCftmPKQBSZZA9tNL5ivp0WSn.jpg" target="_blank" rel="noreferrer"><img src="https://desabawangan.id/storage/slides/rr9JLb8dQYa7IpkuCftmPKQBSZZA9tNL5ivp0WSn.jpg" alt="Foto banner kedua dari portal Desa Bawangan" loading="lazy" /><span>Informasi visual desa</span></a>
+        <div className="agency-section-heading"><h2>Perangkat Desa</h2><p>Geser atau gunakan tombol untuk melihat foto dan jabatan perangkat Desa Bawangan.</p></div>
+        <div className="agency-leaders-carousel" aria-roledescription="carousel" aria-label="Foto perangkat Desa Bawangan">
+          <button className="agency-carousel-arrow" type="button" aria-label="Perangkat sebelumnya" onClick={() => setActiveLeader((activeLeader - 1 + leaders.length) % leaders.length)}><i className="fa-solid fa-chevron-left" /></button>
+          <article className="agency-leader-slide" aria-live="polite" key={leaders[activeLeader].name}>
+            <div className="agency-leader-slide-photo"><img src={leaders[activeLeader].image} alt={`Foto ${leaders[activeLeader].name}`} loading="lazy" /></div>
+            <div className="agency-leader-slide-info"><span className="agency-leader-count">{String(activeLeader + 1).padStart(2, '0')} / {String(leaders.length).padStart(2, '0')}</span><h3>{leaders[activeLeader].name}</h3><p>{leaders[activeLeader].role}</p><span className="agency-leader-rule" /></div>
+          </article>
+          <button className="agency-carousel-arrow" type="button" aria-label="Perangkat berikutnya" onClick={() => setActiveLeader((activeLeader + 1) % leaders.length)}><i className="fa-solid fa-chevron-right" /></button>
         </div>
-        <p className="agency-source-note">Sumber gambar: <a href="https://desabawangan.id/" target="_blank" rel="noreferrer">desabawangan.id</a>. Gambar saat ini ditampilkan dari alamat sumber; belum disalin ke penyimpanan repositori.</p>
+        <div className="agency-carousel-dots" aria-label="Pilih perangkat desa">
+          {leaders.map((person, index) => <button key={person.name} type="button" className={index === activeLeader ? 'is-active' : ''} aria-label={`Tampilkan ${person.name}`} aria-current={index === activeLeader ? 'true' : undefined} onClick={() => setActiveLeader(index)} />)}
+        </div>
+        <p className="agency-source-note">Nama dan jabatan mengikuti daftar yang diberikan. Mohon verifikasi kembali kepada pemerintah desa sebelum dijadikan publikasi final.</p>
       </div>
     </section>
 
-    <section className="agency-section" id="pemerintahan">
-      <div className="agency-container">
-        <div className="agency-section-heading"><h2>Perangkat Desa</h2><p>Daftar nama, jabatan, dan foto berdasarkan informasi yang Anda berikan dari portal desabawangan.id.</p></div>
-        <div className="agency-leaders-grid">
-          {[
-            {name:'Bakhtiar Efendi, S.H',role:'Kepala Desa',image:'https://desabawangan.id/storage/leaders/OcR5odT577lIy6cS8NuWjyhG5hy50wVP0C97fAFQ.png'},
-            {name:'Teguh Wahyudi',role:'Sekretaris Desa',image:'https://desabawangan.id/storage/leaders/L2B7UQCXEDGCced5o57GMaZZKkySt8H1IupOm7BP.jpg'},
-            {name:'Suliswanto',role:'Kaur Keuangan',image:'https://desabawangan.id/storage/leaders/vrSmPmJbN4gn6haqqxyVAYYOALGSRbiS1nmETTXC.jpg'},
+age:'https://desabawangan.id/storage/leaders/vrSmPmJbN4gn6haqqxyVAYYOALGSRbiS1nmETTXC.jpg'},
             {name:'Mustika Dwi Anjar Kurnia S',role:'Kaur Umum & Tata Usaha',image:'https://desabawangan.id/storage/leaders/NWERPzLtPwJShWkr5fb9RtpGXBokh8OYuigmJP4j.png'},
             {name:'Bagas Aprilyanto',role:'Kaur Perencanaan',image:'https://desabawangan.id/storage/leaders/qQOY2BY8XkrjeHpf62JSGotUDT2zTLsOEWc4OhGe.png'},
             {name:'Tuhuningtyas',role:'Kasi Pemerintahan',image:'https://desabawangan.id/storage/leaders/akREa2N5qBdBzyRFxoZY4XpcvO0ZRgXbv0OrSmfA.png'},
