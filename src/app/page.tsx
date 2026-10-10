@@ -86,6 +86,31 @@ export default function HomePage() {
         <a className="agency-button" href="#layanan">JELAJAHI LAYANAN <i className="fa-solid fa-arrow-right" /></a>
       </div>
       <div className="agency-masthead-caption">KECAMATAN PLOSO <span>•</span> KABUPATEN JOMBANG <span>•</span> JAWA TIMUR</div>
+      <div className="agency-info-ticker" aria-label="Informasi Desa Bawangan">
+        <div className="agency-info-label"><span className="agency-info-pulse" aria-hidden="true" /><i className="fa-solid fa-bullhorn" aria-hidden="true" /><span>INFO DESA</span></div>
+        <div className="agency-info-window">
+          <div className="agency-info-track">
+            <div className="agency-info-group">
+              <span className="agency-info-item"><i className="fa-solid fa-circle-check" aria-hidden="true" /> Selamat datang di website Desa Bawangan, Kecamatan Ploso, Kabupaten Jombang.</span>
+              <span className="agency-info-separator">•</span>
+              <a className="agency-info-item" href="https://desabawangan.id/berita/semangat-dan-kekompakan-desa-bawangan-berbuah-juara-3-lomba-gerak-jalan-tingkat-kecamatan-quzTT" target="_blank" rel="noreferrer"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> Semangat dan Kekompakan Desa Bawangan Berbuah Juara 3 Lomba Gerak Jalan Tingkat Kecamatan</a>
+              <span className="agency-info-separator">•</span>
+              <a className="agency-info-item" href="https://desabawangan.id/berita/petakan-kebutuhan-desa-kpm-01-unipdu-pasang-tujuh-convex-di-desa-bawangan-1ANYZ" target="_blank" rel="noreferrer"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> KPM 01 UNIPDU Petakan Kebutuhan Desa dan Pasang Tujuh Convex</a>
+              <span className="agency-info-separator">•</span>
+              <a className="agency-info-item" href="https://desabawangan.id/berita/dukung-sdgs-kpm-01-unipdu-gandeng-dlh-kabupaten-hingga-provinsi-dorong-desa-bawangan-jadi-desa-berseri-QPwLp" target="_blank" rel="noreferrer"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> Dorong Desa Bawangan Menjadi Desa Berseri melalui kolaborasi KPM 01 UNIPDU dan DLH</a>
+              <span className="agency-info-separator">•</span>
+              <span className="agency-info-item"><i className="fa-solid fa-seedling" aria-hidden="true" /> Merawat tradisi, mendorong kemandirian ekonomi, dan membangun Desa Bawangan yang sejahtera.</span>
+              <span className="agency-info-separator">•</span>
+            </div>
+            <div className="agency-info-group" aria-hidden="true">
+              <span className="agency-info-item"><i className="fa-solid fa-circle-check" aria-hidden="true" /> Selamat datang di website Desa Bawangan, Kecamatan Ploso, Kabupaten Jombang.</span>
+              <span className="agency-info-separator">•</span>
+              <span className="agency-info-item"><i className="fa-solid fa-seedling" aria-hidden="true" /> Merawat tradisi, mendorong kemandirian ekonomi, dan membangun Desa Bawangan yang sejahtera.</span>
+              <span className="agency-info-separator">•</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <section className="agency-section" id="sejarah">
