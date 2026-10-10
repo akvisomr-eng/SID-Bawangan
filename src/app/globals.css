@@ -154,3 +154,30 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
  .agency-anchor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:390px){.agency-brand{font-size:10px}.agency-brand-symbol{width:30px;height:30px}.agency-menu-toggle{padding:10px;font-size:10px}}
+
+
+/* Desa Bawangan source photography and village leadership directory */
+.agency-brand-logo{display:block;width:38px;height:38px;object-fit:contain;background:#fff;border-radius:50%;padding:3px;flex:0 0 auto}
+.agency-featured-photo{padding:0;isolation:isolate}
+.agency-featured-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.agency-featured-photo:before{z-index:0;background:linear-gradient(180deg,#0004,#0008)}
+.agency-featured-photo:after{z-index:0}
+.agency-featured-photo .agency-visual-overline,.agency-featured-photo .agency-visual-caption{z-index:2;padding:8px 10px;background:#15261dbd;align-self:flex-start}
+.agency-featured-photo .agency-visual-caption{align-self:stretch;text-align:center}
+.agency-news-photo{display:block;width:calc(100% + 50px);height:180px;margin:-25px -25px 20px;object-fit:cover;background:#e6e9e4}
+.agency-gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.agency-gallery-grid a{position:relative;display:block;min-height:180px;overflow:hidden;background:#e6e9e4;color:#fff;text-decoration:none}
+.agency-gallery-grid img{display:block;width:100%;height:220px;object-fit:cover;transition:transform .25s}
+.agency-gallery-grid a:hover img{transform:scale(1.04)}
+.agency-gallery-grid span{position:absolute;right:0;bottom:0;left:0;padding:28px 14px 13px;background:linear-gradient(transparent,#000b);font-size:11px;font-weight:700}
+.agency-source-note{margin:18px 0 0;color:var(--agency-muted);font-size:10px;line-height:1.8}
+.agency-source-note a{color:#725c00}
+.agency-leaders-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.agency-leader-card{overflow:hidden;border:1px solid #e6e8e5;background:#fff}
+.agency-leader-card>img{display:block;width:100%;height:230px;object-fit:cover;object-position:center top;background:#edf0ec}
+.agency-leader-card>div{padding:15px 14px 17px}
+.agency-leader-card h3{margin:0 0 7px;font-size:13px;line-height:1.45;font-weight:800}
+.agency-leader-card p{margin:0;color:var(--agency-muted);font-family:'Roboto Slab',serif;font-size:11px;line-height:1.6}
+@media(max-width:900px){.agency-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.agency-leaders-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.agency-brand-logo{width:34px;height:34px}}
+@media(max-width:700px){.agency-gallery-grid{gap:10px}.agency-gallery-grid img{height:170px}.agency-leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.agency-leader-card>img{height:200px}.agency-brand-logo{width:32px;height:32px}.agency-news-photo{width:calc(100% + 48px);margin:-24px -24px 18px}}
+@media(max-width:390px){.agency-leader-card>img{height:160px}.agency-leader-card h3{font-size:11px}}
