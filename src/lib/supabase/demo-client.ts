@@ -1,5 +1,7 @@
 'use client';
 
+/* eslint-disable @typescript-eslint/no-explicit-any, prefer-const */
+
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Database } from './database.types';
 
