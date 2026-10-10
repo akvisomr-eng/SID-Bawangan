@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const groups = [
   { title: 'RINGKASAN', items: [
@@ -51,6 +52,8 @@ const groups = [
 
 export default function AdminSidebar() {
   const pathname = usePathname();
+  const [queryModule, setQueryModule] = useState('');
+  useEffect(() => { setQueryModule(new URLSearchParams(window.location.search).get('module') ?? ''); }, [pathname]);
   return <aside className="sid-admin-sidebar">
     <Link href="/admin" className="sid-admin-brand">
       <span className="sid-admin-brand-mark">B</span>
@@ -60,7 +63,8 @@ export default function AdminSidebar() {
       {groups.map((group) => <section className="sid-admin-nav-group" key={group.title}>
         <p>{group.title}</p>
         {group.items.map((item) => {
-          const active = item.href === '/admin' ? pathname === '/admin' : item.href.startsWith('/admin/modul') ? pathname.startsWith('/admin/modul') && (item.href === '/admin/modul' || (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('module') === item.href.split('module=')[1])) : pathname === '/admin' && item.href.includes('#');
+          const moduleKey = item.href.includes('module=') ? item.href.split('module=')[1] : '';
+          const active = item.href === '/admin' ? pathname === '/admin' : item.href === '/admin/modul' ? pathname.startsWith('/admin/modul') && !queryModule : moduleKey ? pathname.startsWith('/admin/modul') && queryModule === moduleKey : pathname === '/admin' && item.href.includes('#');
           return <Link key={item.label} href={item.href} className={'sid-admin-nav-link' + (active ? ' active' : '')} aria-current={active ? 'page' : undefined}><span className="sid-admin-nav-icon" aria-hidden="true">{item.icon}</span><span>{item.label}</span></Link>;
         })}
       </section>)}
