@@ -440,3 +440,20 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
 .admin-page-with-sidebar input:disabled,.admin-page-with-sidebar textarea:disabled{background:#f4f6f9;color:#8792a5;cursor:not-allowed}
 @media(max-width:1100px){.sid-role-guide{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.sid-role-guide{grid-template-columns:1fr 1fr;gap:8px}.sid-role-card{padding:12px}.sid-role-card p{min-height:0;font-size:10px}.sid-user-row{align-items:flex-start;flex-wrap:wrap;padding:14px}.sid-user-ident{width:calc(100% - 60px);flex:1}.sid-user-role-control{width:100%;padding-left:54px}.sid-user-toolbar{padding:0 14px 14px}.sid-user-toolbar input{min-width:0}.sid-user-footnote{padding:13px 14px}}
+
+/* Context-specific administration forms */
+.module-specific-fields{margin-top:24px;padding:22px;border:1px solid #e1e8e3;border-radius:14px;background:#fbfdfb}
+.module-specific-fields>.panel-heading{margin-bottom:8px}
+.module-specific-fields .panel-heading h3{margin:0;font-size:18px;color:#193d2e}
+.module-fields-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+.module-field{min-width:0;display:flex;flex-direction:column;gap:7px}
+.module-field-wide{grid-column:1/-1}
+.module-field label{font-size:12px;font-weight:700;color:#35483e}
+.module-field input,.module-field textarea{box-sizing:border-box;width:100%;min-height:42px;padding:11px 12px;border:1px solid #d7e0d9;border-radius:9px;background:#fff;color:#24352b;font:inherit;font-size:13px}
+.module-field textarea{resize:vertical;line-height:1.6}
+.module-field input:focus,.module-field textarea:focus{outline:2px solid #b8d9c3;border-color:#4b9469}
+.module-field .notice{font-size:11px;line-height:1.5;color:#7b877e}
+.module-advanced-settings{margin-top:18px;padding:14px 16px;border:1px dashed #cbd7ce;border-radius:10px;background:#f7faf7}
+.module-advanced-settings summary{cursor:pointer;font-size:12px;font-weight:700;color:#52645a}
+.module-json-preview{overflow:auto;max-height:280px;margin-top:12px;padding:12px;border-radius:8px;background:#eef2ef;color:#4b5c50;font-size:11px;white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:700px){.module-specific-fields{padding:15px}.module-fields-grid{grid-template-columns:1fr;gap:13px}.module-field-wide{grid-column:auto}}
