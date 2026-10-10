@@ -24,6 +24,11 @@ export default function HomePage() {
   const [activeLeader, setActiveLeader] = useState(0);
 
   useEffect(() => {
+    const timer = window.setInterval(() => setActiveLeader((current) => (current + 1) % 12), 5000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
     let active = true;
     if (!supabase) { setLoaded(true); return; }
     void supabase.from('posts').select('id,title,slug,summary,category,published_at').eq('status', 'published').order('published_at', { ascending: false }).limit(7).then(({ data }) => {
