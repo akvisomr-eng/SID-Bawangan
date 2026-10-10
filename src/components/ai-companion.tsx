@@ -1,6 +1,7 @@
 'use client';
 
-import { FormEvent, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { FormEvent } from 'react';
 
 type ChatMessage = { role: 'user' | 'assistant'; content: string; sources?: string[] };
 type SpeechRecognitionResultLike = { transcript: string };
