@@ -33,6 +33,7 @@ export default function AICompanion() {
   const [busy, setBusy] = useState(false);
   const [listening, setListening] = useState(false);
   const [speaking, setSpeaking] = useState(false);
+  const [speechPulse, setSpeechPulse] = useState(0);
   const [learningConsent, setLearningConsent] = useState(false);
   const [notice, setNotice] = useState('');
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
@@ -92,6 +93,7 @@ export default function AICompanion() {
     const indonesianVoice = voices.find((voice) => voice.lang.toLowerCase().startsWith('id'));
     if (indonesianVoice) utterance.voice = indonesianVoice;
     utterance.onstart = () => setSpeaking(true);
+    utterance.onboundary = () => setSpeechPulse((value) => value + 1);
     utterance.onend = () => setSpeaking(false);
     utterance.onerror = () => setSpeaking(false);
     window.speechSynthesis.speak(utterance);
@@ -139,10 +141,9 @@ export default function AICompanion() {
         <section className="ai-companion-panel" aria-label="Asisten AI Desa Bawangan">
           <header className="ai-companion-header">
             <div className="ai-companion-identity">
-              <div className={`ai-companion-avatar ${speaking ? 'is-speaking' : listening ? 'is-listening' : busy ? 'is-thinking' : ''}`} aria-hidden="true">
+              <div className={`ai-companion-avatar ${speaking ? 'is-speaking' : listening ? 'is-listening' : busy ? 'is-thinking' : ''} ${speechPulse % 2 ? 'speech-beat-a' : 'speech-beat-b'}`} aria-hidden="true">
                 <span className="ai-avatar-orbit" />
                 <img className="ai-avatar-logo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Seal_of_Jombang_Regency.svg" alt="Lambang Kabupaten Jombang" />
-                <span className="ai-equalizer">{Array.from({ length: 7 }, (_, index) => <i key={index} style={{ animationDelay: `${index * 85}ms` }} />)}</span>
               </div>
               <div><strong>Asisten Desa Bawangan</strong><small>{listening ? 'Mendengarkan…' : speaking ? 'Sedang berbicara…' : busy ? 'Sedang mencari jawaban…' : 'Pendamping layanan masyarakat'}</small></div>
             </div>
@@ -173,7 +174,7 @@ export default function AICompanion() {
         </section>
       )}
       <button className={`ai-companion-launcher ${open ? 'open' : ''}`} type="button" onClick={() => setOpen((value) => !value)} aria-label={open ? 'Tutup Asisten Desa Bawangan' : 'Buka Asisten Desa Bawangan'}>
-        <span className={`ai-launcher-mark ${speaking || listening || busy ? 'active' : ''}`}><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seal_of_Jombang_Regency.svg" alt="" /><i /><i /><i /><i /><i /></span>
+        <span className={`ai-launcher-mark ${speaking ? 'is-speaking' : listening ? 'is-listening' : busy ? 'is-thinking' : ''} ${speechPulse % 2 ? 'speech-beat-a' : 'speech-beat-b'}`}><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seal_of_Jombang_Regency.svg" alt="" /></span>
         <span>{open ? 'Tutup Asisten' : 'Tanya AI Desa'}</span>
       </button>
     </div>
