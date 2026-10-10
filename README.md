@@ -15,7 +15,9 @@ Portal informasi publik dan panel administrasi untuk Pemerintah Desa Bawangan, K
 - Login admin melalui Supabase Auth.
 - Ruang kerja untuk menyimpan draf, meninjau konten, dan menerbitkan/mengarsipkan sesuai hak akses database.
 - Agen Editorial: skor dan temuan untuk kualitas judul/ringkasan, panjang isi, data sensitif, klaim yang perlu diverifikasi, dan konteks tanggal. Ini pemeriksaan berbasis aturan, bukan model bahasa generatif.
-- Skema profiles dan posts, trigger timestamp, indeks feed, peran admin/editor/publisher, serta RLS.
+- Skema profiles, posts, dan portal_modules dengan 29 kerangka modul yang mencakup sembilan kategori menu: profil, data desa, layanan, transparansi, PPID, dokumen, sosial, agenda, dan antikorupsi.
+- Workspace modul di `/admin/modul`: isi ringkasan, narasi, data terstruktur JSON, simpan draf, dan publikasikan dengan peran yang sesuai.
+- Modul publik yang diterbitkan dibaca langsung dari Supabase dan ditampilkan pada bagian Informasi dan Modul Desa; semua modul baru berstatus draf sampai diverifikasi.
 
 ## Deployment gratis
 - Workflow `.github/workflows/deploy-pages.yml` membangun keluaran statis Next.js dan menerbitkannya ke GitHub Pages tanpa Render atau layanan hosting berbayar.
@@ -48,5 +50,9 @@ Jangan pernah menaruh service_role key, password database, token akses, atau sec
 - Kontak, statistik, profil, jam layanan, alamat, dan data resmi lain tidak boleh diisi dengan perkiraan.
 - Domain, hosting, akun staf, backup, serta UAT produksi masih perlu disiapkan dan diverifikasi.
 
+## Panduan operasional
+- Pengisian dan publikasi modul: `docs/PANDUAN_PENGISIAN_MODUL.md`.
+- Pembuatan akun admin pertama: `docs/PENYIAPAN_AKUN_ADMIN.md`.
+
 ## Skema database
-Migrasi sumber: supabase/migrations/202610100001_initial_schema.sql.
+Migrasi sumber berada di `supabase/migrations/`: skema awal konten/peran, modul portal terstruktur, dan penyempurnaan kebijakan RLS serta indeks.
