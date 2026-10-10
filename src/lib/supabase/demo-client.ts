@@ -83,10 +83,12 @@ export function createDemoSupabaseBrowserClient(): SupabaseClient<Database> | nu
       let payload: Row | Row[] | null = null;
       const filters: Array<[string, unknown]> = [];
       const orders: Array<{ column: string; ascending: boolean }> = [];
+      let limitCount: number | null = null;
       const query: any = {
         select() { if (action === 'select') action = 'select'; return query; },
         eq(column: string, value: unknown) { filters.push([column, value]); return query; },
         order(column: string, options?: { ascending?: boolean }) { orders.push({ column, ascending: options?.ascending ?? true }); return query; },
+        limit(count: number) { limitCount = Math.max(0, Math.floor(count)); return query; },
         maybeSingle() { return Promise.resolve(execute()).then(({ data, error }) => ({ data: Array.isArray(data) ? data[0] ?? null : data, error })); },
         single() { return query.maybeSingle(); },
         insert(value: Row | Row[]) { action = 'insert'; payload = value; return query; },
@@ -118,6 +120,7 @@ export function createDemoSupabaseBrowserClient(): SupabaseClient<Database> | nu
           const cmp = String(av).localeCompare(String(bv), 'id', { numeric: true });
           return order.ascending ? cmp : -cmp;
         });
+        if (limitCount !== null) result = result.slice(0, limitCount);
         return { data: result, error: null };
       }
       return query;
