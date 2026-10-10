@@ -6,7 +6,7 @@ Portal informasi publik dan panel administrasi untuk Pemerintah Desa Bawangan, K
 - Next.js App Router + TypeScript
 - Supabase Auth dan PostgreSQL
 - Row Level Security (RLS)
-- GitHub Actions untuk build dan pemeriksaan tipe
+- GitHub Actions untuk build, pemeriksaan tipe, audit dependensi, dan publikasi statis gratis melalui GitHub Pages
 - SID Editorial Agent v1: pemeriksaan konten deterministik tanpa pengiriman data ke layanan AI eksternal
 
 ## Modul saat ini
@@ -16,6 +16,13 @@ Portal informasi publik dan panel administrasi untuk Pemerintah Desa Bawangan, K
 - Ruang kerja untuk menyimpan draf, meninjau konten, dan menerbitkan/mengarsipkan sesuai hak akses database.
 - Agen Editorial: skor dan temuan untuk kualitas judul/ringkasan, panjang isi, data sensitif, klaim yang perlu diverifikasi, dan konteks tanggal. Ini pemeriksaan berbasis aturan, bukan model bahasa generatif.
 - Skema profiles dan posts, trigger timestamp, indeks feed, peran admin/editor/publisher, serta RLS.
+
+## Deployment gratis
+- Workflow `.github/workflows/deploy-pages.yml` membangun keluaran statis Next.js dan menerbitkannya ke GitHub Pages tanpa Render atau layanan hosting berbayar.
+- URL proyek yang ditargetkan: `https://akvisomr-eng.github.io/SID-Bawangan/`.
+- Jika publikasi pertama belum berjalan, buka Settings → Pages di repository GitHub dan pilih `GitHub Actions` sebagai Build and deployment source; lalu jalankan workflow `SID Bawangan Free Deployment`.
+- Website publik dan panel login memakai Supabase browser client. Jangan memasukkan service-role key atau secret server ke workflow; hanya publishable key yang boleh digunakan pada browser.
+- Karena GitHub Pages hanya menyajikan file statis, konten dibaca langsung dari Supabase. Perubahan konten muncul tanpa rebuild; halaman detail memakai parameter `?slug=` agar tetap kompatibel dengan hosting statis.
 
 ## Menjalankan lokal
 1. Gunakan Node.js 20 atau yang lebih baru.
