@@ -141,7 +141,7 @@ export default function AICompanion() {
             <div className="ai-companion-identity">
               <div className={`ai-companion-avatar ${speaking ? 'is-speaking' : listening ? 'is-listening' : busy ? 'is-thinking' : ''}`} aria-hidden="true">
                 <span className="ai-avatar-orbit" />
-                <span className="ai-avatar-mark">B</span>
+                <img className="ai-avatar-logo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Seal_of_Jombang_Regency.svg" alt="Lambang Kabupaten Jombang" />
                 <span className="ai-equalizer">{Array.from({ length: 7 }, (_, index) => <i key={index} style={{ animationDelay: `${index * 85}ms` }} />)}</span>
               </div>
               <div><strong>Asisten Desa Bawangan</strong><small>{listening ? 'Mendengarkan…' : speaking ? 'Sedang berbicara…' : busy ? 'Sedang mencari jawaban…' : 'Pendamping layanan masyarakat'}</small></div>
@@ -173,7 +173,7 @@ export default function AICompanion() {
         </section>
       )}
       <button className={`ai-companion-launcher ${open ? 'open' : ''}`} type="button" onClick={() => setOpen((value) => !value)} aria-label={open ? 'Tutup Asisten Desa Bawangan' : 'Buka Asisten Desa Bawangan'}>
-        <span className={`ai-launcher-mark ${speaking || listening || busy ? 'active' : ''}`}><b>B</b><i /><i /><i /><i /><i /></span>
+        <span className={`ai-launcher-mark ${speaking || listening || busy ? 'active' : ''}`}><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seal_of_Jombang_Regency.svg" alt="" /><i /><i /><i /><i /><i /></span>
         <span>{open ? 'Tutup Asisten' : 'Tanya AI Desa'}</span>
       </button>
     </div>
