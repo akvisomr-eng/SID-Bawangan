@@ -64,8 +64,10 @@ export default function AdminSidebar() {
         <p>{group.title}</p>
         {group.items.map((item) => {
           const moduleKey = item.href.includes('module=') ? item.href.split('module=')[1] : '';
-          const active = item.href === '/admin' ? pathname === '/admin' : item.href === '/admin/modul' ? pathname.startsWith('/admin/modul') && !queryModule : moduleKey ? pathname.startsWith('/admin/modul') && queryModule === moduleKey : pathname === '/admin' && item.href.includes('#');
-          return <Link key={item.label} href={item.href} className={'sid-admin-nav-link' + (active ? ' active' : '')} aria-current={active ? 'page' : undefined}><span className="sid-admin-nav-icon" aria-hidden="true">{item.icon}</span><span>{item.label}</span></Link>;
+          const active = item.href === '/admin' ? pathname === '/admin' : item.href === '/admin/modul' ? pathname.startsWith('/admin/modul') && !queryModule : moduleKey ? pathname.startsWith('/admin/modul') && queryModule === moduleKey : false;
+          const className = 'sid-admin-nav-link' + (active ? ' active' : '');
+          const children = <><span className="sid-admin-nav-icon" aria-hidden="true">{item.icon}</span><span>{item.label}</span></>;
+          return item.href.includes('?module=') ? <a key={item.label} href={item.href} className={className} aria-current={active ? 'page' : undefined}>{children}</a> : <Link key={item.label} href={item.href} className={className} aria-current={active ? 'page' : undefined}>{children}</Link>;
         })}
       </section>)}
     </div>
