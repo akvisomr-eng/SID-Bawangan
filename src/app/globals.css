@@ -410,3 +410,33 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
 @media(max-width:1200px){.sid-admin-overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-page-with-sidebar{padding-right:20px;padding-left:278px}}
 @media(max-width:900px){.sid-admin-sidebar{position:relative;inset:auto;width:auto;height:310px;margin:0 -15px 18px;border-right:0;border-bottom:1px solid #e7eaf0}.sid-admin-brand{min-height:65px}.sid-admin-side-scroll{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}.sid-admin-nav-group{margin-bottom:12px}.sid-admin-sidebar-bottom{display:none}.admin-page-with-sidebar{padding:0 16px 24px}.admin-page-with-sidebar .admin-topbar{height:auto;min-height:70px;gap:10px}.admin-page-with-sidebar .admin-heading{padding-top:25px}}
 @media(max-width:600px){.sid-admin-sidebar{height:280px;margin:0 -16px 14px}.sid-admin-side-scroll{grid-template-columns:1fr 1fr;padding:10px}.sid-admin-nav-group>p{font-size:8px}.sid-admin-nav-link{font-size:10px;gap:7px;padding:7px 8px}.sid-admin-overview{padding:16px}.sid-admin-overview-heading{flex-direction:column;gap:7px}.sid-admin-overview-grid{grid-template-columns:1fr}.sid-admin-module-summary{flex-wrap:wrap;gap:12px 18px}.sid-admin-module-summary>a{margin-left:0;flex-basis:100%}.admin-page-with-sidebar .admin-top-actions{gap:8px}.admin-page-with-sidebar .admin-heading h1{font-size:25px}}
+
+/* User access levels */
+.sid-role-guide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 20px}
+.sid-role-card{padding:17px;border:1px solid #e7eaf0;border-radius:12px;background:#fff;box-shadow:0 4px 18px #29344805}
+.sid-role-card p{min-height:47px;margin:12px 0;color:#78869b;font-size:11px;line-height:1.7}
+.sid-role-card>strong{font-size:11px;color:#344157}
+.sid-role-chip{display:inline-flex;align-items:center;padding:6px 9px;border-radius:7px;font-size:10px;font-weight:800}
+.sid-role-admin{background:#fce8e8;color:#a83232}.sid-role-publisher{background:#e9efff;color:#3b5eac}.sid-role-editor{background:#e7f5ec;color:#23754a}.sid-role-viewer{background:#f0f2f6;color:#647187}
+.sid-user-panel{overflow:hidden}
+.sid-user-toolbar{display:flex;align-items:center;gap:14px;padding:0 20px 16px}
+.sid-user-toolbar input{max-width:430px;margin:0}
+.sid-user-toolbar>span{margin-left:auto;color:#8994a6;font-size:10px}
+.sid-user-list{border-top:1px solid #edf0f4}
+.sid-user-row{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid #edf0f4}
+.sid-user-avatar{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:12px;background:#edf5ef;color:#236c4a;font-size:15px;font-weight:800}
+.sid-user-ident{flex:1;min-width:0}
+.sid-user-ident strong,.sid-user-ident span,.sid-user-ident small{display:block;overflow-wrap:anywhere}
+.sid-user-ident strong{color:#344157;font-size:12px}
+.sid-user-ident span{margin-top:4px;color:#68768c;font-size:11px}
+.sid-user-ident small{margin-top:4px;color:#9aa4b5;font-size:9px}
+.sid-user-role-control{width:210px;flex:0 0 auto}
+.sid-user-role-control label{display:block;margin-bottom:6px;color:#8792a5;font-size:9px;font-weight:800}
+.sid-user-role-control select{width:100%;min-height:38px;padding:8px 10px;border:1px solid #dfe5ed;border-radius:8px;background:#fff;color:#344157;font-size:11px}
+.sid-user-role-control select:disabled{background:#f4f6f9;color:#778397}
+.sid-user-role-control small{display:block;margin-top:5px;color:#9a6a3c;font-size:9px}
+.sid-user-footnote{margin:0;padding:15px 20px;background:#fafbfd;color:#8792a5;font-size:10px;line-height:1.7}
+.sid-user-empty{padding:28px;text-align:center;color:#8792a5;font-size:12px}
+.admin-page-with-sidebar input:disabled,.admin-page-with-sidebar textarea:disabled{background:#f4f6f9;color:#8792a5;cursor:not-allowed}
+@media(max-width:1100px){.sid-role-guide{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.sid-role-guide{grid-template-columns:1fr 1fr;gap:8px}.sid-role-card{padding:12px}.sid-role-card p{min-height:0;font-size:10px}.sid-user-row{align-items:flex-start;flex-wrap:wrap;padding:14px}.sid-user-ident{width:calc(100% - 60px);flex:1}.sid-user-role-control{width:100%;padding-left:54px}.sid-user-toolbar{padding:0 14px 14px}.sid-user-toolbar input{min-width:0}.sid-user-footnote{padding:13px 14px}}
