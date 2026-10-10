@@ -14,6 +14,12 @@ export type Database = {
   }
   public: {
     Tables: {
+      portal_modules: {
+        Row: { id: string; module_key: string; title: string; category: string; summary: string; body: string; data: Json; status: string; display_order: number; published_at: string | null; updated_by: string | null; created_at: string; updated_at: string }
+        Insert: { id?: string; module_key: string; title: string; category: string; summary?: string; body?: string; data?: Json; status?: string; display_order?: number; published_at?: string | null; updated_by?: string | null; created_at?: string; updated_at?: string }
+        Update: { id?: string; module_key?: string; title?: string; category?: string; summary?: string; body?: string; data?: Json; status?: string; display_order?: number; published_at?: string | null; updated_by?: string | null; created_at?: string; updated_at?: string }
+        Relationships: []
+      }
       posts: {
         Row: {
           author_id: string | null
