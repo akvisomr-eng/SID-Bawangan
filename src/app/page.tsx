@@ -93,11 +93,11 @@ export default function HomePage() {
             <div className="agency-info-group">
               <span className="agency-info-item"><i className="fa-solid fa-circle-check" aria-hidden="true" /> Selamat datang di website Desa Bawangan, Kecamatan Ploso, Kabupaten Jombang.</span>
               <span className="agency-info-separator">•</span>
-              <a className="agency-info-item" href="https://desabawangan.id/berita/semangat-dan-kekompakan-desa-bawangan-berbuah-juara-3-lomba-gerak-jalan-tingkat-kecamatan-quzTT" target="_blank" rel="noreferrer"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> Semangat dan Kekompakan Desa Bawangan Berbuah Juara 3 Lomba Gerak Jalan Tingkat Kecamatan</a>
+              <a className="agency-info-item" href="/informasi?slug=juara-3-lomba-gerak-jalan"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> Semangat dan Kekompakan Desa Bawangan Berbuah Juara 3 Lomba Gerak Jalan Tingkat Kecamatan</a>
               <span className="agency-info-separator">•</span>
-              <a className="agency-info-item" href="https://desabawangan.id/berita/petakan-kebutuhan-desa-kpm-01-unipdu-pasang-tujuh-convex-di-desa-bawangan-1ANYZ" target="_blank" rel="noreferrer"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> KPM 01 UNIPDU Petakan Kebutuhan Desa dan Pasang Tujuh Convex</a>
+              <a className="agency-info-item" href="/informasi?slug=pemetaan-kebutuhan-desa-convex"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> KPM 01 UNIPDU Petakan Kebutuhan Desa dan Pasang Tujuh Convex</a>
               <span className="agency-info-separator">•</span>
-              <a className="agency-info-item" href="https://desabawangan.id/berita/dukung-sdgs-kpm-01-unipdu-gandeng-dlh-kabupaten-hingga-provinsi-dorong-desa-bawangan-jadi-desa-berseri-QPwLp" target="_blank" rel="noreferrer"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> Dorong Desa Bawangan Menjadi Desa Berseri melalui kolaborasi KPM 01 UNIPDU dan DLH</a>
+              <a className="agency-info-item" href="/informasi?slug=desa-bawangan-berseri"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> Dorong Desa Bawangan Menjadi Desa Berseri melalui kolaborasi KPM 01 UNIPDU dan DLH</a>
               <span className="agency-info-separator">•</span>
               <span className="agency-info-item"><i className="fa-solid fa-seedling" aria-hidden="true" /> Merawat tradisi, mendorong kemandirian ekonomi, dan membangun Desa Bawangan yang sejahtera.</span>
               <span className="agency-info-separator">•</span>
