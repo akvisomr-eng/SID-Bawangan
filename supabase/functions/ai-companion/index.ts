@@ -1,7 +1,9 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
+const allowedOrigin = Deno.env.get("ALLOWED_ORIGIN") ?? "https://akvisomr-eng.github.io";
+const requestBuckets = new Map<string, number[]>();
 const corsHeaders = {
-  "Access-Control-Allow-Origin": Deno.env.get("ALLOWED_ORIGIN") ?? "*",
+  "Access-Control-Allow-Origin": allowedOrigin,
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Content-Type": "application/json; charset=utf-8",
@@ -33,8 +35,22 @@ function score(row: ContentRow, terms: string[]): number {
 }
 
 Deno.serve(async (request: Request) => {
+  const requestOrigin = request.headers.get("origin");
+  if (requestOrigin && requestOrigin !== allowedOrigin) return json({ error: "Origin tidak diizinkan." }, 403);
   if (request.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   if (request.method !== "POST") return json({ error: "Metode tidak didukung." }, 405);
+
+  // Lightweight per-isolate abuse guard for this public, read-only endpoint.
+  // Configure provider/gateway-level rate limiting for a durable production limit.
+  const clientIp = request.headers.get("cf-connecting-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const now = Date.now();
+  const recent = (requestBuckets.get(clientIp) ?? []).filter((timestamp) => now - timestamp < 60_000);
+  if (recent.length >= 12) return json({ error: "Batas pertanyaan sementara tercapai. Silakan coba lagi sebentar." }, 429);
+  recent.push(now);
+  requestBuckets.set(clientIp, recent);
+  if (requestBuckets.size > 5000) {
+    for (const [key, timestamps] of requestBuckets) if (timestamps.every((timestamp) => now - timestamp >= 60_000)) requestBuckets.delete(key);
+  }
 
   const apiKey = Deno.env.get("OPENAI_API_KEY");
   const model = Deno.env.get("OPENAI_MODEL") ?? "gpt-4o-mini";
