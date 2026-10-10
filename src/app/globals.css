@@ -282,3 +282,20 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
  .agency-info-item strong{font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){.agency-info-track,.agency-info-pulse{animation:none}.agency-info-window{overflow-x:auto;mask-image:none}}
+
+/* Village portal feature directory inspired by public-service portal patterns */
+.agency-feature-directory{background:#f6f8f5}
+.agency-feature-group{margin:42px 0 0}
+.agency-feature-group>h3{margin:0 0 18px;padding-bottom:13px;border-bottom:1px solid #dfe6df;color:#243d2c;font-size:clamp(20px,2.5vw,27px);letter-spacing:-.03em}
+.agency-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.agency-feature-grid-compact{grid-template-columns:repeat(3,minmax(0,1fr))}
+.agency-feature-card{display:flex;min-width:0;flex-direction:column;align-items:flex-start;padding:24px;border:1px solid #e2e8e1;background:#fff;box-shadow:0 8px 26px rgba(28,48,33,.035);scroll-margin-top:100px}
+.agency-feature-card>i{display:grid;width:43px;height:43px;place-items:center;margin-bottom:17px;border-radius:12px;background:#edf5ed;color:#2d6b43;font-size:18px}
+.agency-feature-card h4{margin:0 0 9px;color:#23362a;font-size:16px;line-height:1.4}
+.agency-feature-card p{flex:1;margin:0 0 18px;color:#667168;font-family:'Roboto Slab',serif;font-size:12px;line-height:1.85}
+.agency-feature-card>a{display:inline-flex;align-items:center;gap:8px;color:#286742;font-size:11px;font-weight:800;text-decoration:none}
+.agency-feature-card>a:hover{color:#0c8a55}
+.agency-feature-status{display:inline-flex;align-items:center;padding:7px 9px;border:1px solid #e6e9e3;background:#f8faf7;color:#68736a;font-size:10px;font-weight:700}
+.agency-feature-card:target{outline:2px solid #75ad80;outline-offset:2px}
+@media(max-width:900px){.agency-feature-grid,.agency-feature-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.agency-feature-grid,.agency-feature-grid-compact{grid-template-columns:1fr}.agency-feature-card{padding:20px}.agency-feature-group{margin-top:32px}}
