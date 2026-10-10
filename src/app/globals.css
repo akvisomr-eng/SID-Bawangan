@@ -121,3 +121,36 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
 @media(max-width:900px){.agency-nav,.agency-nav-inner{min-height:72px}.agency-brand{font-size:15px}.agency-nav-links{gap:15px}.agency-nav-links>a{font-size:9px}.agency-masthead{min-height:600px}.agency-featured-copy{padding:26px}.agency-transparency-inner{gap:25px}}
 @media(max-width:700px){.agency-container{width:calc(100% - 36px)}.agency-nav{background:#1d2922}.agency-nav-inner{position:relative;flex-wrap:wrap;padding:12px 0}.agency-brand{font-size:14px}.agency-brand-symbol{width:34px;height:34px;font-size:20px}.agency-menu-toggle{display:block}.agency-nav-links{display:none;flex:0 0 calc(100% + 36px);flex-direction:column;align-items:stretch;gap:0;margin:0 -18px -12px;padding:8px 18px 16px;background:#1d2922}.agency-nav-links.is-open{display:flex}.agency-nav-links>a{padding:13px 0;font-size:10px}.agency-nav-links .agency-admin-link{margin-top:7px;padding:13px}.agency-masthead{min-height:600px;padding:145px 0 90px;background-position:58% center}.agency-masthead h1{font-size:clamp(36px,10vw,55px)}.agency-subtitle{font-size:14px}.agency-kicker{font-size:17px}.agency-masthead-caption{font-size:7px;letter-spacing:.08em}.agency-section{padding:65px 0}.agency-section-heading{margin-bottom:36px}.agency-section-heading h2,.agency-about h2{font-size:29px}.agency-services-grid{grid-template-columns:1fr;gap:36px}.agency-service-icon{width:84px;height:84px;font-size:31px}.agency-featured-news{grid-template-columns:1fr}.agency-featured-visual{min-height:210px}.agency-visual-letter{font-size:100px}.agency-featured-copy{padding:24px}.agency-featured-copy h3{font-size:22px}.agency-news-grid{grid-template-columns:1fr}.agency-news-card>p:not(.agency-date){min-height:0}.agency-about-grid{grid-template-columns:1fr;gap:18px}.agency-timeline{grid-template-columns:1fr;gap:45px;margin-top:55px}.agency-timeline-item{max-width:380px;margin:0 auto;width:100%}.agency-document-panel{align-items:flex-start;flex-wrap:wrap;padding:20px;gap:14px}.agency-document-panel>div{flex-basis:calc(100% - 80px)}.agency-document-status{margin-left:76px}.agency-transparency-inner{grid-template-columns:1fr;gap:25px}.agency-transparency{padding:58px 0}.agency-participation-inner{align-items:flex-start}.agency-footer-inner{grid-template-columns:1fr auto}.agency-footer-inner>p{grid-column:1;text-align:left;grid-row:2}.agency-back-top{grid-column:2;grid-row:1/3}}
 @media(prefers-reduced-motion:reduce){.agency-site *{scroll-behavior:auto;transition:none!important}}
+
+
+/* Navigation inspired by Pulosari.id, customized for Bawangan Maju Bersama */
+.agency-brand{font-size:clamp(12px,1.25vw,17px);letter-spacing:.015em;white-space:nowrap}
+.agency-nav-links{gap:clamp(10px,1.45vw,21px)}
+.agency-nav-links>a,.agency-nav-dropdown>summary{display:flex;align-items:center;gap:7px;color:white;text-decoration:none;font-size:clamp(8px,.72vw,10px);font-weight:700;letter-spacing:.035em;white-space:nowrap;cursor:pointer;list-style:none}
+.agency-nav-dropdown>summary::-webkit-details-marker{display:none}
+.agency-nav-dropdown>summary i{font-size:8px;color:var(--agency-yellow)}
+.agency-nav-dropdown{position:relative}
+.agency-dropdown-panel{position:absolute;top:calc(100% + 22px);left:-14px;z-index:40;display:none;min-width:210px;padding:8px;background:#fff;border:1px solid #e7e9e6;border-radius:5px;box-shadow:0 12px 30px #0002}
+.agency-nav-dropdown[open] .agency-dropdown-panel{display:flex;flex-direction:column}
+.agency-dropdown-panel a{padding:11px 12px;color:#26362d;text-decoration:none;font-size:11px;font-weight:600;line-height:1.35}
+.agency-dropdown-panel a:hover,.agency-dropdown-panel a:focus-visible{background:#fff5ce;color:#5f4b00}
+.agency-nav-dropdown[open]>summary{color:var(--agency-yellow)}
+.agency-compact-info{max-width:900px}
+.agency-compact-info h2{margin:0 0 14px;font-size:clamp(27px,4vw,40px);font-weight:800;letter-spacing:-.04em;text-transform:uppercase}
+.agency-compact-info>p:last-of-type{max-width:760px;color:var(--agency-muted);font-family:'Roboto Slab',serif;font-size:14px;line-height:1.9}
+.agency-anchor-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
+.agency-anchor-grid span{display:block;padding:15px;border:1px solid #e4e8e2;background:#fff;font-size:12px;font-weight:700}
+.agency-anchor-grid small{display:block;margin-top:7px;color:#8a918b;font-size:9px;font-weight:500}
+#ppid,#jaring-pengaman-sosial,#transparansi,#dokumen,#layanan,#profil{scroll-margin-top:95px}
+@media(max-width:1150px){.agency-nav-links{gap:10px}.agency-nav-links>a,.agency-nav-dropdown>summary{font-size:8px}.agency-brand{font-size:12px}.agency-nav-links .agency-admin-link{padding:10px}}
+@media(max-width:700px){
+ .agency-nav-links>a,.agency-nav-dropdown>summary{font-size:11px}
+ .agency-nav-dropdown{width:100%}
+ .agency-nav-dropdown>summary{justify-content:space-between;padding:13px 0}
+ .agency-dropdown-panel{position:static;min-width:0;margin:0 0 7px;padding:4px;border:0;border-left:2px solid var(--agency-yellow);border-radius:0;box-shadow:none;background:#26332b}
+ .agency-dropdown-panel a{padding:10px 12px;color:#f4f5f1;font-size:10px}
+ .agency-dropdown-panel a:hover,.agency-dropdown-panel a:focus-visible{background:#3a473d;color:var(--agency-yellow)}
+ .agency-nav-dropdown[open] .agency-dropdown-panel{display:flex}
+ .agency-anchor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:390px){.agency-brand{font-size:10px}.agency-brand-symbol{width:30px;height:30px}.agency-menu-toggle{padding:10px;font-size:10px}}
