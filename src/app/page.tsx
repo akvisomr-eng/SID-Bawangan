@@ -54,22 +54,21 @@ export default function HomePage() {
         <a className="agency-brand" href="#top" aria-label="Bawangan Maju Bersama beranda"><img className="agency-brand-logo" src="https://desabawangan.id/logo/jombang.png" alt="Lambang Kabupaten Jombang" /><span>BAWANGAN MAJU BERSAMA</span></a>
         <button className="agency-menu-toggle" type="button" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>MENU <i className="fa-solid fa-bars" /></button>
         <div className={`agency-nav-links ${menuOpen ? 'is-open' : ''}`}>
-          <a href="#top" onClick={() => setMenuOpen(false)}>BERANDA</a>
-          <details className="agency-nav-dropdown"><summary>PROFIL <i className="fa-solid fa-chevron-down" /></summary><div className="agency-dropdown-panel">
+          <a href="#top" onClick={(event) => { setMenuOpen(false); event.currentTarget.closest(".agency-nav-links")?.querySelectorAll("details.agency-nav-dropdown").forEach((item) => item.removeAttribute("open")); }}>BERANDA</a>
+          <details className="agency-nav-dropdown"><summary onClick={(event) => { const current = event.currentTarget.parentElement; current?.parentElement?.querySelectorAll("details.agency-nav-dropdown").forEach((item) => { if (item !== current) item.removeAttribute("open"); }); }}>PROFIL <i className="fa-solid fa-chevron-down" aria-hidden="true" /></summary><div className="agency-dropdown-panel">
             <a href="#profil" onClick={() => setMenuOpen(false)}>Profil Desa</a><a href="#sejarah" onClick={() => setMenuOpen(false)}>Sejarah Desa</a><a href="#visi-misi" onClick={() => setMenuOpen(false)}>Visi dan Misi</a><a href="#pemerintahan" onClick={() => setMenuOpen(false)}>Pemerintahan Desa</a><a href="#wilayah" onClick={() => setMenuOpen(false)}>Wilayah Desa</a>
           </div></details>
-          <details className="agency-nav-dropdown"><summary>DATA DESA <i className="fa-solid fa-chevron-down" /></summary><div className="agency-dropdown-panel">
+          <details className="agency-nav-dropdown"><summary onClick={(event) => { const current = event.currentTarget.parentElement; current?.parentElement?.querySelectorAll("details.agency-nav-dropdown").forEach((item) => { if (item !== current) item.removeAttribute("open"); }); }}>DATA DESA <i className="fa-solid fa-chevron-down" aria-hidden="true" /></summary><div className="agency-dropdown-panel">
             <a href="#data-wilayah" onClick={() => setMenuOpen(false)}>Data Wilayah</a><a href="#statistik" onClick={() => setMenuOpen(false)}>Statistik Desa</a><a href="#data-penduduk" onClick={() => setMenuOpen(false)}>Data Penduduk</a><a href="#data-sosial" onClick={() => setMenuOpen(false)}>Data Sosial</a><a href="#dokumen" onClick={() => setMenuOpen(false)}>Dokumen Perencanaan</a><a href="#transparansi" onClick={() => setMenuOpen(false)}>Data Pembangunan</a><a href="#produk-hukum" onClick={() => setMenuOpen(false)}>Produk Hukum</a>
           </div></details>
-          <details className="agency-nav-dropdown"><summary>LAYANAN <i className="fa-solid fa-chevron-down" /></summary><div className="agency-dropdown-panel">
+          <details className="agency-nav-dropdown"><summary onClick={(event) => { const current = event.currentTarget.parentElement; current?.parentElement?.querySelectorAll("details.agency-nav-dropdown").forEach((item) => { if (item !== current) item.removeAttribute("open"); }); }}>LAYANAN <i className="fa-solid fa-chevron-down" aria-hidden="true" /></summary><div className="agency-dropdown-panel">
             <a href="#layanan" onClick={() => setMenuOpen(false)}>Informasi Layanan</a><a href="#layanan-administrasi" onClick={() => setMenuOpen(false)}>Layanan Administrasi</a><a href="#pengaduan" onClick={() => setMenuOpen(false)}>Pengaduan Warga</a><a href="#partisipasi" onClick={() => setMenuOpen(false)}>Aspirasi dan Partisipasi</a>
           </div></details>
           <a href="#ppid" onClick={() => setMenuOpen(false)}>PPID</a>
-          <details className="agency-nav-dropdown"><summary>DESA ANTI KORUPSI <i className="fa-solid fa-chevron-down" /></summary><div className="agency-dropdown-panel">
+          <details className="agency-nav-dropdown"><summary onClick={(event) => { const current = event.currentTarget.parentElement; current?.parentElement?.querySelectorAll("details.agency-nav-dropdown").forEach((item) => { if (item !== current) item.removeAttribute("open"); }); }}>DESA ANTI KORUPSI <i className="fa-solid fa-chevron-down" aria-hidden="true" /></summary><div className="agency-dropdown-panel">
             <a href="#transparansi" onClick={() => setMenuOpen(false)}>Transparansi Anggaran</a><a href="#laporan-pembangunan" onClick={() => setMenuOpen(false)}>Laporan Pembangunan</a><a href="#produk-hukum" onClick={() => setMenuOpen(false)}>Peraturan Desa</a><a href="#anti-korupsi" onClick={() => setMenuOpen(false)}>Informasi Anti Korupsi</a><a href="#pengaduan" onClick={() => setMenuOpen(false)}>Laporkan Dugaan Pelanggaran</a>
           </div></details>
           <a href="#jaring-pengaman-sosial" onClick={() => setMenuOpen(false)}>JARING PENGAMAN SOSIAL</a>
-          <Link href="/admin/login" className="agency-admin-link">PANEL ADMIN <i className="fa-solid fa-arrow-up-right-from-square" /></Link>
         </div>
       </div>
     </nav>
@@ -103,9 +102,12 @@ export default function HomePage() {
       </div>
     </section>
 
-    <section className="agency-section agency-section-    <section className="agency-section" id="pemerintahan">
+    </div>
+    </section>
+
+    <section className="agency-section" id="pemerintahan">
       <div className="agency-container">
-        <div className="agency-section-heading"><h2>Perangkat Desa</h2><p>Geser atau gunakan tombol untuk melihat foto dan jabatan perangkat Desa Bawangan.</p></div>
+        <div className="agency-section-heading"><h2>Perangkat Desa</h2><p>Gunakan panah atau titik navigasi untuk melihat foto dan jabatan setiap perangkat Desa Bawangan.</p></div>
         <div className="agency-leaders-carousel" aria-roledescription="carousel" aria-label="Foto perangkat Desa Bawangan">
           <button className="agency-carousel-arrow" type="button" aria-label="Perangkat sebelumnya" onClick={() => setActiveLeader((activeLeader - 1 + leaders.length) % leaders.length)}><i className="fa-solid fa-chevron-left" /></button>
           <article className="agency-leader-slide" aria-live="polite" key={leaders[activeLeader].name}>
@@ -116,22 +118,6 @@ export default function HomePage() {
         </div>
         <div className="agency-carousel-dots" aria-label="Pilih perangkat desa">
           {leaders.map((person, index) => <button key={person.name} type="button" className={index === activeLeader ? 'is-active' : ''} aria-label={`Tampilkan ${person.name}`} aria-current={index === activeLeader ? 'true' : undefined} onClick={() => setActiveLeader(index)} />)}
-        </div>
-        <p className="agency-source-note">Nama dan jabatan mengikuti daftar yang diberikan. Mohon verifikasi kembali kepada pemerintah desa sebelum dijadikan publikasi final.</p>
-      </div>
-    </section>
-
-age:'https://desabawangan.id/storage/leaders/vrSmPmJbN4gn6haqqxyVAYYOALGSRbiS1nmETTXC.jpg'},
-            {name:'Mustika Dwi Anjar Kurnia S',role:'Kaur Umum & Tata Usaha',image:'https://desabawangan.id/storage/leaders/NWERPzLtPwJShWkr5fb9RtpGXBokh8OYuigmJP4j.png'},
-            {name:'Bagas Aprilyanto',role:'Kaur Perencanaan',image:'https://desabawangan.id/storage/leaders/qQOY2BY8XkrjeHpf62JSGotUDT2zTLsOEWc4OhGe.png'},
-            {name:'Tuhuningtyas',role:'Kasi Pemerintahan',image:'https://desabawangan.id/storage/leaders/akREa2N5qBdBzyRFxoZY4XpcvO0ZRgXbv0OrSmfA.png'},
-            {name:"Mu'in",role:'Kasi Kesejahteraan',image:'https://desabawangan.id/storage/leaders/oRxuBpdye7mBaLVV6NJV0SHbKPJGG9vJz24Aqx6f.png'},
-            {name:'Dartik',role:'Kasi Pelayanan',image:'https://desabawangan.id/storage/leaders/2ifighQXLnlwV00BcuILrqrvW6lLFrJKuHPhVayL.png'},
-            {name:'Hadi Mulyono',role:'Kasun Bawangan',image:'https://desabawangan.id/storage/leaders/U565k6y8Ja8oUld8o0TFrmzzMdNch0vEKo7nNLUZ.png'},
-            {name:'Eko Subekti',role:'Kasun Ngumpak',image:'https://desabawangan.id/storage/leaders/acVCyNkECCJ6leUYNXq8A0fHImIsCJBScQPxrABw.png'},
-            {name:'Lisanah',role:'Kasun Jabon',image:'https://desabawangan.id/storage/leaders/xEWKzLuIvD9ZOOhTLtd62hQNtoc0Z0VVJDWQclpN.png'},
-            {name:'Bambang Indramanto, SE.',role:'Kasun Kesamben',image:'https://desabawangan.id/storage/leaders/NAEXO2Ny4nctDA23wllbE8e9VRC1PtE09X3pfVdt.png'},
-          ].map(person => <article className="agency-leader-card" key={person.name}><img src={person.image} alt={`Foto ${person.name}`} loading="lazy" /><div><h3>{person.name}</h3><p>{person.role}</p></div></article>)}
         </div>
         <p className="agency-source-note">Nama dan jabatan mengikuti daftar yang diberikan. Mohon verifikasi kembali kepada pemerintah desa sebelum dijadikan publikasi final.</p>
       </div>
