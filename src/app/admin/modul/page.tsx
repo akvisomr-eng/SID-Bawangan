@@ -109,8 +109,12 @@ export default function PortalModulesPage() {
           <label htmlFor="module-title">Judul tampil</label><input id="module-title" disabled={!canEdit} value={title} maxLength={180} onChange={(event) => setTitle(event.target.value)} />
           <label htmlFor="module-summary">Ringkasan</label><textarea id="module-summary" disabled={!canEdit} rows={3} maxLength={800} value={summary} onChange={(event) => setSummary(event.target.value)} placeholder="Ringkasan singkat untuk pengunjung" />
           <label htmlFor="module-body">Isi informasi</label><textarea id="module-body" disabled={!canEdit} rows={7} value={body} onChange={(event) => setBody(event.target.value)} placeholder="Masukkan narasi resmi, prosedur, sumber, atau keterangan terverifikasi." />
-          <label htmlFor="module-data">Data terstruktur (JSON)</label><textarea id="module-data" disabled={!canEdit} rows={12} value={dataText} onChange={(event) => setDataText(event.target.value)} spellCheck={false} className="module-json-editor" />
-          <p className="agent-disclaimer">Gunakan struktur JSON yang disediakan sebagai cetakan awal. Isi angka hanya dari sumber resmi; jangan memasukkan NIK, nomor KK, alamat pribadi, atau daftar penerima bantuan ke konten publik.</p>
+          {role === 'admin' && <details className="module-advanced-settings">
+            <summary>Pengaturan teknis (lanjutan)</summary>
+            <p className="login-copy">Bagian ini untuk administrator teknis saat integrasi atau penyesuaian struktur data. Pengelolaan konten sehari-hari cukup menggunakan judul, ringkasan, dan isi informasi di atas.</p>
+            <label htmlFor="module-data">Data terstruktur (JSON)</label><textarea id="module-data" rows={12} value={dataText} onChange={(event) => setDataText(event.target.value)} spellCheck={false} className="module-json-editor" />
+            <p className="agent-disclaimer">Ubah JSON hanya bila memahami skemanya. Gunakan sumber resmi untuk angka; jangan memasukkan NIK, nomor KK, alamat pribadi, atau daftar penerima bantuan ke konten publik.</p>
+          </details>}
           <div className="editor-actions"><button className="button-secondary" disabled={busy || !canEdit} onClick={() => void save('draft')}>{busy ? 'Menyimpan…' : 'Simpan draf'}</button><button className="button-primary" disabled={busy || !canPublish} title={!canPublish ? 'Perlu peran publisher atau admin' : undefined} onClick={() => void save('published')}>{busy ? 'Memproses…' : 'Publikasikan modul'}</button></div>
           {!canEdit && <small className="notice">Akun viewer hanya memiliki akses baca. Hubungi administrator jika perlu mengubah konten.</small>}
           {canEdit && !canPublish && <small className="notice">Akun editor dapat menyiapkan draf. Publikasi dilakukan oleh publisher atau admin.</small>}
