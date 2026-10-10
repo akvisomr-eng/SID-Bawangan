@@ -8,6 +8,9 @@ const groups = [
   { title: 'RINGKASAN', items: [
     { label: 'Dashboard', icon: '▦', href: '/admin', exact: true },
   ]},
+  { title: 'ADMINISTRASI', items: [
+    { label: 'Pengguna & Level Akses', icon: '♙', href: '/admin/pengguna' },
+  ]},
   { title: 'KONTEN WEBSITE', items: [
     { label: 'Berita & Pengumuman', icon: '▤', href: '/admin#content-editor' },
     { label: 'Daftar Konten', icon: '☷', href: '/admin#posts-list' },
