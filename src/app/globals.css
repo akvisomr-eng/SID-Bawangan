@@ -299,3 +299,32 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
 .agency-feature-card:target{outline:2px solid #75ad80;outline-offset:2px}
 @media(max-width:900px){.agency-feature-grid,.agency-feature-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.agency-feature-grid,.agency-feature-grid-compact{grid-template-columns:1fr}.agency-feature-card{padding:20px}.agency-feature-group{margin-top:32px}}
+
+/* Rich public village portal sections: statistics, agenda, and public document catalogue */
+.agency-village-data{background:#f7f9f6}
+.agency-data-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:30px}
+.agency-data-card{display:flex;min-width:0;flex-direction:column;align-items:flex-start;padding:23px;border:1px solid #e0e7df;background:#fff;box-shadow:0 8px 25px rgba(28,48,33,.04)}
+.agency-data-icon{display:grid;width:44px;height:44px;place-items:center;margin-bottom:20px;border-radius:13px;background:#eaf3eb;color:#286642;font-size:18px}
+.agency-data-label{color:#748075;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.agency-data-card strong{margin:10px 0 7px;color:#263a2b;font-size:17px;line-height:1.4}
+.agency-data-card p{flex:1;margin:0 0 18px;color:#68736a;font-family:'Roboto Slab',serif;font-size:12px;line-height:1.8}
+.agency-data-card>a,.agency-agenda-card a{color:#286742;font-size:11px;font-weight:800;text-decoration:none}
+.agency-agenda-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+.agency-agenda-card{display:flex;gap:16px;padding:24px;border:1px solid #e4e9e2;background:#fff}
+.agency-agenda-symbol{display:grid;flex:0 0 44px;width:44px;height:44px;place-items:center;border-radius:12px;background:#edf5ed;color:#286742;font-size:18px}
+.agency-agenda-type{color:#718074;font-size:10px;font-weight:800;letter-spacing:.1em}
+.agency-agenda-card h3{margin:9px 0;color:#273b2d;font-size:16px;line-height:1.45}
+.agency-agenda-card p{margin:0 0 16px;color:#68736a;font-family:'Roboto Slab',serif;font-size:12px;line-height:1.8}
+.agency-agenda-card a{display:inline-block;margin-top:15px}
+.agency-documents-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:28px}
+.agency-public-document{display:flex;align-items:flex-start;gap:15px;padding:20px;border:1px solid #e2e8e0;background:#fff}
+.agency-public-document>i{display:grid;flex:0 0 42px;width:42px;height:42px;place-items:center;border-radius:11px;background:#edf5ed;color:#286742;font-size:17px}
+.agency-public-document h3{margin:0 0 6px;color:#293b2d;font-size:14px;line-height:1.5}
+.agency-public-document p{margin:0;color:#68736a;font-family:'Roboto Slab',serif;font-size:11px;line-height:1.8}
+.agency-public-document>span{flex:0 0 auto;margin-left:auto;padding:6px 8px;background:#f5f6f2;color:#73796e;font-size:9px;font-weight:800}
+.agency-documents-footer{display:flex;align-items:center;gap:14px;margin-top:20px;padding:17px 20px;background:#edf4ed;color:#31583c}
+.agency-documents-footer>i{flex:0 0 auto;font-size:19px}
+.agency-documents-footer p{flex:1;margin:0;color:#4e6553;font-size:11px;line-height:1.8}
+.agency-documents-footer a{flex:0 0 auto;color:#245f3a;font-size:11px;font-weight:800;text-decoration:none}
+@media(max-width:900px){.agency-data-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.agency-agenda-grid{grid-template-columns:1fr}.agency-documents-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.agency-data-grid{grid-template-columns:1fr}.agency-data-card{padding:20px}.agency-agenda-card{padding:19px;gap:12px}.agency-public-document{flex-wrap:wrap;padding:16px}.agency-public-document>span{margin-left:57px}.agency-documents-footer{align-items:flex-start;flex-wrap:wrap}.agency-documents-footer p{flex-basis:calc(100% - 40px)}.agency-documents-footer a{margin-left:33px}}
