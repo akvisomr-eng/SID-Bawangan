@@ -505,3 +505,12 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
 .ai-launcher-mark{position:relative;display:inline-flex;align-items:center;justify-content:center;overflow:hidden}
 .ai-launcher-mark img{position:relative;z-index:2;width:25px;height:31px;object-fit:contain}
 .ai-avatar-mark{display:none}
+
+/* AI Companion: show the official emblem without a circular backdrop */
+.ai-companion-avatar{border:0!important;border-radius:0!important;background:transparent!important;overflow:visible}
+.ai-companion-avatar .ai-avatar-orbit{display:none!important}
+.ai-avatar-logo{position:relative!important;width:43px;height:52px;object-fit:contain;filter:none!important}
+.ai-companion-avatar.is-listening .ai-avatar-orbit,
+.ai-companion-avatar.is-thinking .ai-avatar-orbit{display:none!important}
+.ai-launcher-mark{border-radius:0!important;background:transparent!important;overflow:visible!important}
+.ai-launcher-mark img{width:28px!important;height:34px!important;object-fit:contain;filter:none!important}
