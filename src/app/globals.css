@@ -498,3 +498,10 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
 @keyframes ai-eq{from{height:3px}to{height:11px}}@keyframes ai-listen{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.22);opacity:0}}@keyframes ai-think{to{transform:rotate(360deg)}}@keyframes ai-dot{to{opacity:.3;transform:translateY(-2px)}}@keyframes ai-panel-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:480px){.ai-companion-root{right:12px;bottom:12px}.ai-companion-launcher{padding:8px 13px 8px 8px;font-size:12px}.ai-launcher-mark{width:34px;height:34px}.ai-companion-panel{right:-2px;bottom:59px;width:calc(100vw - 24px);height:min(610px,calc(100dvh - 90px));min-height:360px;border-radius:18px}.ai-companion-header{padding:12px}.ai-companion-messages{padding:12px}}
 @media(prefers-reduced-motion:reduce){.ai-companion-root *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+
+/* AI Companion: official Kabupaten Jombang emblem */
+.ai-avatar-logo{position:absolute;z-index:2;width:43px;height:55px;object-fit:contain;filter:drop-shadow(0 2px 3px #123d2f25)}
+.ai-launcher-mark{position:relative;display:inline-flex;align-items:center;justify-content:center;overflow:hidden}
+.ai-launcher-mark img{position:relative;z-index:2;width:25px;height:31px;object-fit:contain}
+.ai-avatar-mark{display:none}
