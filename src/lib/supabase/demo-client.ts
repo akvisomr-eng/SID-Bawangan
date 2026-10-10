@@ -5,7 +5,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Database } from './database.types';
 
-const TRIAL_KEY = 'sid-bawangan-admin-trial-start-v1';
+const TRIAL_KEY = 'sid-bawangan-demo-trial-start-v1';
 const DB_KEY = 'sid-bawangan-admin-trial-db-v1';
 const TRIAL_MS = 14 * 24 * 60 * 60 * 1000;
 const demoUser = { id: 'demo-admin-bawangan', email: 'administrator.demo@sid-bawangan.local', user_metadata: { full_name: 'Administrator Demo' }, app_metadata: {}, aud: 'authenticated', created_at: '2026-10-10T00:00:00.000Z' };
