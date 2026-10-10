@@ -211,3 +211,17 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
  .agency-carousel-dots{gap:8px;margin-top:18px}
 }
 @media(prefers-reduced-motion:reduce){.agency-leader-slide{animation:none}.agency-carousel-dots button,.agency-carousel-arrow{transition:none}}
+
+
+/* Clear dropdown indicators and prevent visual overlap in the public navigation */
+.agency-nav-dropdown>summary{position:relative;padding:12px 0}
+.agency-nav-dropdown>summary i{display:inline-block;margin-left:3px;font-size:10px;color:var(--agency-yellow);transition:transform .18s ease}
+.agency-nav-dropdown[open]>summary i{transform:rotate(180deg)}
+.agency-dropdown-panel{top:calc(100% + 8px);max-height:min(65vh,460px);overflow-y:auto}
+.agency-nav-dropdown[open]{z-index:45}
+.agency-nav-dropdown[open]>.agency-dropdown-panel{z-index:46}
+@media(max-width:700px){
+ .agency-nav-dropdown>summary{width:100%;padding:13px 0}
+ .agency-nav-dropdown>summary i{margin-left:auto;font-size:11px}
+ .agency-dropdown-panel{max-height:none;overflow:visible}
+}
