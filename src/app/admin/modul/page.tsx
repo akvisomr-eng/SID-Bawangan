@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import type { Json } from '@/lib/supabase/database.types';
 import { createSupabaseBrowserClient } from '@/lib/supabase/client';
+import AdminSidebar from '@/components/admin/AdminSidebar';
 
 type PortalModule = {
   id: string; module_key: string; title: string; category: string; summary: string;
@@ -45,7 +46,9 @@ export default function PortalModulesPage() {
     else {
       const rows = (data ?? []) as PortalModule[];
       setModules(rows);
-      setSelectedId((current) => current && rows.some((item) => item.id === current) ? current : rows[0]?.id ?? '');
+      const requestedKey = new URLSearchParams(window.location.search).get('module');
+      const requestedModule = requestedKey ? rows.find((item) => item.module_key === requestedKey) : undefined;
+      setSelectedId(requestedModule?.id ?? (current => current && rows.some((item) => item.id === current) ? current : rows[0]?.id ?? ''));
     }
     setLoading(false);
   }, [supabase, router]);
