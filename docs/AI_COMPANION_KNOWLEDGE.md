@@ -56,3 +56,32 @@ Dasar hukum yang tercatat di JDIH: Peraturan Daerah Kabupaten Djombang Nomor 5 T
 
 ## Catatan biaya
 Respons sapaan/obrolan ringan dan jawaban berbasis referensi lokal dijalankan tanpa OpenAI API. Ini menghemat biaya, tetapi bukan model generatif besar: pertanyaan baru yang tidak cocok dengan pengetahuan lokal mungkin perlu diarahkan ke sumber resmi atau memerlukan model berbayar bila kelak diaktifkan.
+
+
+## Dasar hukum dan kerangka pemerintah yang relevan (ditambahkan 10 Oktober 2026)
+
+Catatan: ini basis pengetahuan umum untuk membantu penjelasan, bukan pendapat hukum. Sebelum menjadi dasar dokumen/keputusan resmi, periksa status, perubahan, aturan pelaksana, dan penerapan pada JDIH resmi.
+
+### Rujukan hukum utama
+- **UU Nomor 6 Tahun 2014 tentang Desa**, sebagaimana telah beberapa kali diubah, terakhir dengan **UU Nomor 3 Tahun 2024**. Rujukan: https://peraturan.bpk.go.id/Details/38582/uu-no-6-tahun-2014 dan https://peraturan.bpk.go.id/Details/283617/uu-no-3-tahun-2024
+- **Permendesa PDT Nomor 13 Tahun 2025 tentang Pedoman Sistem Informasi Desa**, diundangkan 4 Desember 2025. Pedoman mencakup pengelolaan platform SID, pendataan desa, metadata dan indikator SDGs Desa, sinkronisasi/konsolidasi program, pemantauan dan evaluasi, tata kelola dan SDM pengelola. Rujukan: https://jdih.kemendesa.go.id/public/documents/d09de79c-b8fb-4951-b26d-ceb2bcec9f10Peraturan_Menteri_Desa_dan_Pembangunan_Daerah_Tertinggal_Nomor_13_Tahun_2025_tentang_Pedoman_Sistem_Informasi_Desa.pdf
+- **UU Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik**: landasan umum untuk informasi publik, permohonan informasi, dan informasi yang dikecualikan. Rujukan: https://peraturan.bpk.go.id/Details/39047/uu-no-14-
+- **UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi**: acuan penting untuk pengumpulan, penggunaan, penyimpanan, pengamanan, dan pengungkapan data pribadi. Rujukan: https://peraturan.bpk.go.id/Details/229798/uu-no-27-
+- **Perpres Nomor 95 Tahun 2018 tentang Sistem Pemerintahan Berbasis Elektronik (SPBE)**: kerangka layanan dan tata kelola pemerintahan digital. Rujukan pencarian BPK: https://peraturan.bpk.go.id/Search?httpa%3A%2F%2Finfo.kemendikdasmen.go.id=&p=801
+- **Perpres Nomor 39 Tahun 2019 tentang Satu Data Indonesia**: mendukung standardisasi, metadata, interoperabilitas dan penggunaan data pemerintah yang dapat dipertanggungjawabkan. Cari naskah resmi melalui JDIH/BPK karena tautan dokumen bisa berubah.
+- **Permendagri Nomor 20 Tahun 2018 tentang Pengelolaan Keuangan Desa**: rujukan terkait pengelolaan keuangan desa. Rujukan: https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018
+- **Peraturan Kabupaten Jombang**: untuk peraturan daerah/peraturan bupati yang paling relevan dan terbaru, telusuri JDIH Kabupaten Jombang: https://jdih.jombangkab.go.id/dokumen/perda. Jangan menyatakan ada aturan khusus SID Bawangan sebelum dokumennya ditemukan dan diverifikasi.
+
+### Program dan inisiatif yang relevan
+1. **Sistem Informasi Desa (SID) dan SDGs Desa — Kementerian Desa PDT.** Mendukung data kondisi desa, perencanaan pembangunan berbasis data, pemantauan indikator pembangunan, dan rekomendasi program. Portal: https://sid.kemendesa.go.id/ dan https://sid.kemendesa.go.id/sdgs
+2. **Digitalisasi Pemerintahan Desa — Komdigi.** Halaman layanan pemerintah menyebut fasilitasi/pendampingan penggunaan domain desa.id, website desa dan SIDEKA-NG. Informasi: https://djtpd.komdigi.go.id/layanan?page=2
+3. **SIDEKA-NG.** Layanan yang disebut Komdigi mencakup CMS website desa dan layanan desa, serta interoperabilitas dengan data SID Kemendesa, Sistem Keuangan Desa, dan Profil Desa/Kelurahan Kemendagri. Informasi: https://djtpd.komdigi.go.id/
+4. **SPBE dan Satu Data Indonesia.** Kerangka yang relevan untuk layanan digital yang terkoordinasi dan data yang terstandar, mutakhir, terpadu, aman serta dapat dipertanggungjawabkan.
+
+### Relevansi praktis untuk SID Bawangan
+- Publikasikan berita, pengumuman, profil, layanan, dokumen anggaran, produk hukum, dan laporan hanya setelah pemeriksaan serta persetujuan penanggung jawab.
+- Buat katalog data dan metadata: nama data, sumber, pemilik/pengelola, tanggal pembaruan, status verifikasi, klasifikasi akses, dan masa retensi.
+- Bedakan informasi publik dari data pribadi atau informasi yang dikecualikan; hindari menampilkan NIK, data KK, daftar penerima bantuan, kontak pribadi, atau dokumen identitas.
+- Simpan sumber/tautan untuk tiap ringkasan hukum dan tampilkan tanggal pemeriksaan. AI harus mengatakan jika belum bisa memverifikasi status terkini.
+- Jadikan AI Companion sebagai asisten penjelas, bukan penentu kelayakan bantuan, penerbit surat, pengganti PPID, atau pemberi tafsir hukum yang mengikat.
+- Program yang disebut di atas adalah kerangka/layanan pemerintah yang relevan; penyebutan tersebut **tidak berarti SID Bawangan sudah menjadi peserta, terintegrasi, disertifikasi, atau berhak atas pendanaan**. Persyaratan dan kesempatan dukungan harus dicek ke instansi penyelenggara.
