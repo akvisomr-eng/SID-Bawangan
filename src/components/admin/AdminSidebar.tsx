@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import AdminTrialNotice from '@/components/admin/AdminTrialNotice';
 
 const groups = [
   { title: 'RINGKASAN', items: [
@@ -62,6 +63,7 @@ export default function AdminSidebar() {
       <img className="sid-admin-brand-logo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Seal_of_Jombang_Regency.svg" alt="Lambang Kabupaten Jombang" />
       <span><strong>BAWANGAN</strong><small>SID · Panel Administrasi</small></span>
     </Link>
+    <AdminTrialNotice />
     <div className="sid-admin-side-scroll">
       {groups.map((group) => <section className="sid-admin-nav-group" key={group.title}>
         <p>{group.title}</p>
