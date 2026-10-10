@@ -6,6 +6,9 @@ on:
     branches: [main]
 permissions:
   contents: read
+concurrency:
+  group: sid-bawangan-ci-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
