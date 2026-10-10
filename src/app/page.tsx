@@ -169,12 +169,32 @@ export default function HomePage() {
         </ol>
         <div className="agency-anchor-grid">
           <span>Pemerintahan Desa <small>Profil perangkat desa</small></span>
-          <span id="wilayah">Wilayah Desa <small>Informasi wilayah</small></span>
+          <span id="wilayah">Wilayah Desa <small>Lokasi Desa Bawangan di Google Maps</small></span>
           <span id="data-wilayah">Data Wilayah <small>Data resmi menyusul</small></span>
           <span id="statistik">Statistik Desa <small>Data resmi menyusul</small></span>
           <span id="data-penduduk">Data Penduduk <small>Data resmi menyusul</small></span>
           <span id="data-sosial">Data Sosial <small>Data resmi menyusul</small></span>
           <span id="produk-hukum">Produk Hukum <small>Dokumen resmi menyusul</small></span>
+        </div>
+        <div className="agency-village-map" aria-labelledby="agency-village-map-title">
+          <div className="agency-village-map-heading">
+            <div>
+              <span className="agency-profile-eyebrow">LOKASI DESA</span>
+              <h3 id="agency-village-map-title">Peta Wilayah Desa Bawangan</h3>
+              <p>Desa Bawangan, Kecamatan Ploso, Kabupaten Jombang, Jawa Timur</p>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Desa+Bawangan%2C+Kecamatan+Ploso%2C+Kabupaten+Jombang%2C+Jawa+Timur" target="_blank" rel="noreferrer">Buka di Google Maps <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" /></a>
+          </div>
+          <div className="agency-village-map-frame">
+            <iframe
+              title="Google Maps lokasi Desa Bawangan, Kecamatan Ploso, Kabupaten Jombang"
+              src="https://maps.google.com/maps?q=Desa%20Bawangan%2C%20Kecamatan%20Ploso%2C%20Kabupaten%20Jombang%2C%20Jawa%20Timur&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+          <p className="agency-village-map-note">Peta menggunakan pencarian lokasi Desa Bawangan di Google Maps. Untuk batas administrasi atau titik koordinat resmi, diperlukan data geospasial resmi desa.</p>
         </div>
       </div>
     </section>
