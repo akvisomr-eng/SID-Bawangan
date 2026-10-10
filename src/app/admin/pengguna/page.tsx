@@ -38,7 +38,7 @@ export default function AdminUsersPage() {
     const { data: ownProfile } = await supabase.from('profiles').select('role').eq('id', user.id).maybeSingle();
     if (ownProfile?.role !== 'admin') { setAuthorized(false); setLoading(false); return; }
     setAuthorized(true);
-    const { data, error } = await supabase.from('profiles').select('id,full_name,email,role,created_at').order('full_name');
+    const { data, error } = await supabase.rpc('admin_list_users');
     if (error) setMessage('Daftar pengguna tidak dapat dimuat. Periksa kebijakan akses profil.');
     else setProfiles((data ?? []) as Profile[]);
     setLoading(false);
