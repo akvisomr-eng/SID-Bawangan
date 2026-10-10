@@ -63,13 +63,13 @@ Respons sapaan/obrolan ringan dan jawaban berbasis referensi lokal dijalankan ta
 Catatan: ini basis pengetahuan umum untuk membantu penjelasan, bukan pendapat hukum. Sebelum menjadi dasar dokumen/keputusan resmi, periksa status, perubahan, aturan pelaksana, dan penerapan pada JDIH resmi.
 
 ### Rujukan hukum utama
-- **UU Nomor 6 Tahun 2014 tentang Desa**, sebagaimana telah beberapa kali diubah, terakhir dengan **UU Nomor 3 Tahun 2024**. Rujukan: https://peraturan.bpk.go.id/Details/38582/uu-no-6-tahun-2014 dan https://peraturan.bpk.go.id/Details/283617/uu-no-3-tahun-2024
+- **UU Nomor 6 Tahun 2014 tentang Desa**, sebagaimana telah beberapa kali diubah, terakhir dengan **UU Nomor 3 Tahun 2024**. Rujukan: https://peraturan.bpk.go.id dan https://peraturan.bpk.go.id
 - **Permendesa PDT Nomor 13 Tahun 2025 tentang Pedoman Sistem Informasi Desa**, diundangkan 4 Desember 2025. Pedoman mencakup pengelolaan platform SID, pendataan desa, metadata dan indikator SDGs Desa, sinkronisasi/konsolidasi program, pemantauan dan evaluasi, tata kelola dan SDM pengelola. Rujukan: https://jdih.kemendesa.go.id
-- **UU Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik**: landasan umum untuk informasi publik, permohonan informasi, dan informasi yang dikecualikan. Rujukan: https://peraturan.bpk.go.id/Details/39047/uu-no-14-
-- **UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi**: acuan penting untuk pengumpulan, penggunaan, penyimpanan, pengamanan, dan pengungkapan data pribadi. Rujukan: https://peraturan.bpk.go.id/Details/229798/uu-no-27-
-- **Perpres Nomor 95 Tahun 2018 tentang Sistem Pemerintahan Berbasis Elektronik (SPBE)**: kerangka layanan dan tata kelola pemerintahan digital. Rujukan pencarian BPK: https://peraturan.bpk.go.id/Details/96913/perpres-no-95-tahun-2018
-- **Perpres Nomor 39 Tahun 2019 tentang Satu Data Indonesia**: mendukung standardisasi, metadata, interoperabilitas dan penggunaan data pemerintah yang dapat dipertanggungjawabkan. Rujukan: https://peraturan.bpk.go.id/Details/108813/perpres-no-39-tahun-2019
-- **Permendagri Nomor 20 Tahun 2018 tentang Pengelolaan Keuangan Desa**: rujukan terkait pengelolaan keuangan desa. Rujukan: https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018
+- **UU Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik**: landasan umum untuk informasi publik, permohonan informasi, dan informasi yang dikecualikan. Rujukan: https://peraturan.bpk.go.id
+- **UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi**: acuan penting untuk pengumpulan, penggunaan, penyimpanan, pengamanan, dan pengungkapan data pribadi. Rujukan: https://peraturan.bpk.go.id
+- **Perpres Nomor 95 Tahun 2018 tentang Sistem Pemerintahan Berbasis Elektronik (SPBE)**: kerangka layanan dan tata kelola pemerintahan digital. Rujukan pencarian BPK: https://peraturan.bpk.go.id
+- **Perpres Nomor 39 Tahun 2019 tentang Satu Data Indonesia**: mendukung standardisasi, metadata, interoperabilitas dan penggunaan data pemerintah yang dapat dipertanggungjawabkan. Rujukan: https://peraturan.bpk.go.id
+- **Permendagri Nomor 20 Tahun 2018 tentang Pengelolaan Keuangan Desa**: rujukan terkait pengelolaan keuangan desa. Rujukan: https://peraturan.bpk.go.id
 - **Peraturan Kabupaten Jombang**: untuk peraturan daerah/peraturan bupati yang paling relevan dan terbaru, telusuri JDIH Kabupaten Jombang: https://jdih.jombangkab.go.id/dokumen/perda. Jangan menyatakan ada aturan khusus SID Bawangan sebelum dokumennya ditemukan dan diverifikasi.
 
 ### Program dan inisiatif yang relevan
