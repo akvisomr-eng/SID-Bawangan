@@ -59,7 +59,7 @@ export default function AdminSidebar() {
   useEffect(() => { setQueryModule(new URLSearchParams(window.location.search).get('module') ?? ''); }, [pathname]);
   return <aside className="sid-admin-sidebar">
     <Link href="/admin" className="sid-admin-brand">
-      <span className="sid-admin-brand-mark">B</span>
+      <img className="sid-admin-brand-logo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Seal_of_Jombang_Regency.svg" alt="Lambang Kabupaten Jombang" />
       <span><strong>BAWANGAN</strong><small>SID · Panel Administrasi</small></span>
     </Link>
     <div className="sid-admin-side-scroll">
