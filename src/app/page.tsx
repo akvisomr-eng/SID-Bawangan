@@ -132,7 +132,7 @@ export default function HomePage() {
           <li>Membangun dan mendorong pengembangan serta optimalisasi sektor pertanian, perkebunan, peternakan, dan perikanan, baik pada tahap produksi maupun pengolahan hasilnya.</li>
         </ol>
         <div className="agency-anchor-grid">
-          <span id="pemerintahan">Pemerintahan Desa <small>Profil perangkat desa</small></span>
+          <span>Pemerintahan Desa <small>Profil perangkat desa</small></span>
           <span id="wilayah">Wilayah Desa <small>Informasi wilayah</small></span>
           <span id="data-wilayah">Data Wilayah <small>Data resmi menyusul</small></span>
           <span id="statistik">Statistik Desa <small>Data resmi menyusul</small></span>
