@@ -148,6 +148,10 @@ Deno.serve(async (request: Request) => {
   const conversational = smallTalkAnswer(question);
   if (conversational) return json(conversational);
 
+  // Route clearly identified intents before broad keyword retrieval to prevent unrelated topics mixing into one answer.
+  const focused = focusedKnowledgeAnswer(question);
+  if (focused) return json(focused);
+
   const terms = [...new Set(question.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) ?? [])].slice(0, 12);
   const [posts, modules] = await Promise.all([
     fetchPublished<ContentRow>(supabaseUrl, anonKey, "posts", "title,summary,body,category,slug,published_at", 15),
