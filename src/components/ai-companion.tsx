@@ -23,7 +23,7 @@ type SpeechWindow = Window & {
 
 const starterMessage: ChatMessage = {
   role: 'assistant',
-  content: 'Halo! Saya Asisten Desa Bawangan. Saya bisa membantu mencari informasi desa, memahami persyaratan layanan, dan menemukan dokumen publik. Silakan bertanya lewat chat atau suara.',
+  content: 'Halo! 😊 Apa kabar? Saya Asisten Desa Bawangan. Saya bisa membantu mencari informasi desa, menjelaskan menu website dan panduan umum layanan, atau menemani ngobrol santai. Apa yang bisa saya bantu hari ini?',
 };
 
 export default function AICompanion() {
