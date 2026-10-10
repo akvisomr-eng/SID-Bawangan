@@ -71,7 +71,7 @@ function smallTalkAnswer(question: string): { answer: string; sources: string[];
 }
 
 function focusedKnowledgeAnswer(question: string): { answer: string; sources: string[]; mode: string } | null {
-  const q = question.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/[^\\p{L}\\p{N}\\s-]/gu, " ").replace(/\\s+/g, " ").trim();
+  const q = question.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\p{L}\p{N}\s-]/gu, " ").replace(/\s+/g, " ").trim();
   const has = (...patterns: string[]) => patterns.some((pattern) => q.includes(pattern));
   const item = (title: string) => curatedKnowledge.find((entry) => entry.title === title);
   const respond = (title: string, answer: string) => ({ answer, sources: [title], mode: "knowledge_fallback" });
