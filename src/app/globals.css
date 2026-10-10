@@ -181,3 +181,33 @@ a{transition:color .18s ease,background .18s ease,transform .18s ease}a:focus-vi
 @media(max-width:900px){.agency-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.agency-leaders-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.agency-brand-logo{width:34px;height:34px}}
 @media(max-width:700px){.agency-gallery-grid{gap:10px}.agency-gallery-grid img{height:170px}.agency-leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.agency-leader-card>img{height:200px}.agency-brand-logo{width:32px;height:32px}.agency-news-photo{width:calc(100% + 48px);margin:-24px -24px 18px}}
 @media(max-width:390px){.agency-leader-card>img{height:160px}.agency-leader-card h3{font-size:11px}}
+
+
+/* Accessible responsive carousel for village officials */
+.agency-leaders-carousel{display:grid;grid-template-columns:48px minmax(0,760px) 48px;align-items:center;justify-content:center;gap:22px;max-width:980px;margin:0 auto}
+.agency-leader-slide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);min-height:390px;overflow:hidden;border:1px solid #e4e8e2;background:#fff;box-shadow:0 18px 50px #17251f0c;animation:agency-slide-in .22s ease-out}
+.agency-leader-slide-photo{min-height:390px;background:#e8ece7}
+.agency-leader-slide-photo img{display:block;width:100%;height:100%;min-height:390px;max-height:500px;object-fit:cover;object-position:center top}
+.agency-leader-slide-info{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(24px,4vw,52px)}
+.agency-leader-count{color:#806700;font-size:10px;font-weight:800;letter-spacing:.16em}
+.agency-leader-slide-info h3{margin:20px 0 10px;font-size:clamp(21px,3vw,32px);font-weight:800;line-height:1.25;letter-spacing:-.035em}
+.agency-leader-slide-info p{margin:0;color:var(--agency-muted);font-family:'Roboto Slab',serif;font-size:14px;line-height:1.7}
+.agency-leader-rule{width:48px;height:4px;margin-top:25px;background:var(--agency-yellow)}
+.agency-carousel-arrow{display:grid;place-items:center;width:46px;height:46px;border:1px solid #dfe5dd;border-radius:50%;background:#fff;color:#24382b;font-size:14px;transition:background .18s,color .18s,transform .18s}
+.agency-carousel-arrow:hover{transform:scale(1.05);background:var(--agency-yellow);border-color:var(--agency-yellow)}
+.agency-carousel-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:24px auto 0}
+.agency-carousel-dots button{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#cbd3ca;transition:width .18s,background .18s}
+.agency-carousel-dots button.is-active{width:25px;border-radius:8px;background:#8a7000}
+@keyframes agency-slide-in{from{opacity:.65;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){
+ .agency-leaders-carousel{grid-template-columns:34px minmax(0,1fr) 34px;gap:8px}
+ .agency-carousel-arrow{width:34px;height:34px;font-size:11px}
+ .agency-leader-slide{grid-template-columns:1fr;min-height:0}
+ .agency-leader-slide-photo{min-height:0;height:clamp(250px,75vw,380px)}
+ .agency-leader-slide-photo img{height:100%;min-height:0;max-height:none;object-position:center 25%}
+ .agency-leader-slide-info{padding:22px 24px 26px}
+ .agency-leader-slide-info h3{margin-top:12px;font-size:22px}
+ .agency-leader-rule{margin-top:17px}
+ .agency-carousel-dots{gap:8px;margin-top:18px}
+}
+@media(prefers-reduced-motion:reduce){.agency-leader-slide{animation:none}.agency-carousel-dots button,.agency-carousel-arrow{transition:none}}
