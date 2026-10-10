@@ -3,8 +3,12 @@
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { createSupabaseBrowserClient } from '@/lib/supabase/client';
+import type { Json } from '@/lib/supabase/database.types';
 
 type PublicPost = { id: string; title: string; slug: string; summary: string; category: 'news' | 'announcement' | 'service' | 'village_profile'; published_at: string | null };
+type PublicModule = { id: string; module_key: string; title: string; category: string; summary: string; body: string; data: Json; display_order: number; published_at: string | null };
+const moduleCategoryLabels: Record<string, string> = { profil: 'Profil desa', data_desa: 'Data desa', layanan: 'Layanan warga', transparansi: 'Transparansi', ppid: 'PPID', dokumen: 'Dokumen publik', sosial: 'Jaring pengaman sosial', agenda: 'Agenda', anti_korupsi: 'Desa anti korupsi' };
+const moduleValueText = (value: Json): string => value === null ? '—' : Array.isArray(value) ? value.map((item) => moduleValueText(item)).filter(Boolean).join(', ') : typeof value === 'object' ? Object.entries(value).map(([key, item]) => key.replace(/_/g, ' ') + ': ' + moduleValueText(item as Json)).join(' · ') : String(value);
 const labels = { news: 'Berita desa', announcement: 'Pengumuman', service: 'Layanan', village_profile: 'Profil desa' };
 const formatDate = (value: string | null) => value ? new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(value)) : 'Informasi desa';
 const services = [
@@ -19,6 +23,7 @@ const services = [
 export default function HomePage() {
   const supabase = useMemo(() => createSupabaseBrowserClient(), []);
   const [posts, setPosts] = useState<PublicPost[]>([]);
+  const [portalModules, setPortalModules] = useState<PublicModule[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLeader, setActiveLeader] = useState(0);
@@ -33,6 +38,9 @@ export default function HomePage() {
     if (!supabase) { setLoaded(true); return; }
     void supabase.from('posts').select('id,title,slug,summary,category,published_at').eq('status', 'published').order('published_at', { ascending: false }).limit(7).then(({ data }) => {
       if (active) { setPosts((data ?? []) as PublicPost[]); setLoaded(true); }
+    });
+    void supabase.from('portal_modules').select('id,module_key,title,category,summary,body,data,display_order,published_at').eq('status', 'published').order('display_order').order('title').then(({ data }) => {
+      if (active) setPortalModules((data ?? []) as PublicModule[]);
     });
     return () => { active = false; };
   }, [supabase]);
@@ -251,6 +259,16 @@ export default function HomePage() {
       </div>
     </section>
 
+    {portalModules.length > 0 && <section className="agency-section agency-managed-modules" id="modul-terkelola">
+      <div className="agency-container">
+        <div className="agency-section-heading"><p className="agency-kicker agency-kicker-green">INFORMASI TERVERIFIKASI</p><h2>Informasi dan Modul Desa</h2><p>Konten berikut diambil dari basis data portal dan hanya ditampilkan setelah diterbitkan oleh pengelola yang berwenang.</p></div>
+        <div className="agency-managed-module-grid">{portalModules.map((module) => <article className="agency-managed-module-card" key={module.id} id={'modul-' + module.module_key}>
+          <span className="agency-tag">{moduleCategoryLabels[module.category] ?? module.category}</span><h3>{module.title}</h3>{module.summary && <p className="agency-managed-module-summary">{module.summary}</p>}{module.body && <p>{module.body}</p>}
+          {module.data && typeof module.data === 'object' && !Array.isArray(module.data) && Object.keys(module.data).length > 0 && <details className="agency-module-data"><summary>Lihat rincian data</summary><dl>{Object.entries(module.data).filter(([, value]) => value !== '' && value !== null && !(Array.isArray(value) && value.length === 0)).map(([key, value]) => <div key={key}><dt>{key.replace(/_/g, ' ')}</dt><dd>{moduleValueText(value as Json)}</dd></div>)}</dl></details>}
+          {module.published_at && <small className="agency-module-published">Diperbarui {formatDate(module.published_at)}</small>}
+        </article>)}</div>
+      </div>
+    </section>}
     <section className="agency-section agency-section-muted" id="berita">
       <div className="agency-container">
         <div className="agency-section-heading"><h2>Berita &amp; Informasi</h2><p>Kabar dan kegiatan Desa Bawangan yang dihimpun dari kolom berita desa.</p></div>
