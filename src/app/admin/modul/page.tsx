@@ -344,7 +344,13 @@ export default function PortalModulesPage() {
     setTitle(selected.title);
     setSummary(selected.summary);
     setBody(selected.body);
-    const stored = jsonObject(selected.data);\n    const values: Record<string, string> = {};\n    for (const field of getModuleFields(selected.module_key)) {\n      const value = stored[field.key];\n      values[field.key] = Array.isArray(value) ? value.join('\\n') : value == null ? '' : String(value);\n    }\n    setFormData(values);
+    const stored = jsonObject(selected.data);
+    const values: Record<string, string> = {};
+    for (const field of getModuleFields(selected.module_key)) {
+      const value = stored[field.key];
+      values[field.key] = Array.isArray(value) ? value.join('\n') : value == null ? '' : String(value);
+    }
+    setFormData(values);
   }, [selectedId, selected?.updated_at]);
 
   async function save(nextStatus: 'draft' | 'published') {
