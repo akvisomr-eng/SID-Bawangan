@@ -103,7 +103,7 @@ export type Database = {
     }
     Functions: {
       current_user_role: { Args: never; Returns: string }
-      admin_set_user_role: { Args: { target_user_id: string; new_role: string }; Returns: undefined }
+      admin_set_user_role: { Args: { target_user_id: string; new_role: string }; Returns: undefined }\n      admin_list_users: { Args: never; Returns: { id: string; full_name: string; email: string | null; role: string; created_at: string }[] }
     }
     Enums: {
       [_ in never]: never
