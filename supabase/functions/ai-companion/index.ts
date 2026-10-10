@@ -102,7 +102,10 @@ Deno.serve(async (request: Request) => {
   if (!question) return json({ error: "Silakan tulis pertanyaan terlebih dahulu." }, 400);
   if (question.length < 2) return json({ error: "Pertanyaan terlalu singkat." }, 400);
 
-  const conversational = smallTalkAnswer(question);\n  if (conversational) return json(conversational);\n\n  const terms = [...new Set(question.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) ?? [])].slice(0, 12);
+  const conversational = smallTalkAnswer(question);
+  if (conversational) return json(conversational);
+
+  const terms = [...new Set(question.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) ?? [])].slice(0, 12);
   const [posts, modules] = await Promise.all([
     fetchPublished<ContentRow>(supabaseUrl, anonKey, "posts", "title,summary,body,category,slug,published_at", 15),
     fetchPublished<ContentRow>(supabaseUrl, anonKey, "portal_modules", "title,summary,body,module_key,category,published_at", 35),
