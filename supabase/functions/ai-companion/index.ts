@@ -70,8 +70,41 @@ function smallTalkAnswer(question: string): { answer: string; sources: string[];
  return null;
 }
 
+function focusedKnowledgeAnswer(question: string): { answer: string; sources: string[]; mode: string } | null {
+  const q = question.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/[^\\p{L}\\p{N}\\s-]/gu, " ").replace(/\\s+/g, " ").trim();
+  const has = (...patterns: string[]) => patterns.some((pattern) => q.includes(pattern));
+  const item = (title: string) => curatedKnowledge.find((entry) => entry.title === title);
+  const respond = (title: string, answer: string) => ({ answer, sources: [title], mode: "knowledge_fallback" });
+
+  if (has("sejarah desa", "sejarah bawangan", "asal usul", "asal-usul", "asal nama", "kenapa dinamakan bawangan", "mengapa dinamakan bawangan")) {
+    const k = item("Cerita asal-usul nama Desa Bawangan")!;
+    return respond(k.title, "Sejauh pengetahuan yang tersedia, salah satu cerita yang diberitakan menyebut nama Bawangan berkaitan dengan tanaman bawang yang konon dahulu tumbuh subur di wilayah tersebut. Penting dicatat: ini adalah cerita yang dimuat media lokal, bukan sejarah yang sudah dibuktikan melalui arsip resmi. Untuk sejarah lengkap—misalnya tahun berdiri, tokoh pendiri, perkembangan dusun, dan peristiwa penting—saya belum memiliki dokumen resmi Desa Bawangan yang memverifikasinya.\n\nSumber: " + k.content);
+  }
+  if (has("admin", "dashboard", "panel admin", "administrator", "petugas website") && has("terbit", "publikasi", "publish", "berita", "pengumuman", "artikel")) {
+    const k = item("Panduan dashboard admin SID Bawangan")!;
+    return respond(k.title, "Untuk menerbitkan berita di dashboard SID Bawangan, ikuti alur umum berikut (nama tombol dapat berbeda sesuai versi dashboard):\n1. Masuk melalui tautan Admin dengan akun resmi yang memiliki izin mengelola berita.\n2. Buka modul Berita/Posts atau modul konten yang sesuai.\n3. Pilih Tambah/Buat Berita, lalu isi judul, isi berita, kategori, tanggal, gambar/lampiran, dan sumber bila diperlukan.\n4. Simpan sebagai Draft terlebih dahulu, lalu periksa ejaan, fakta, tanggal, tautan, hak penggunaan gambar, dan pastikan tidak ada data pribadi.\n5. Gunakan Pratinjau jika tersedia dan minta penanggung jawab memeriksa serta menyetujui isi.\n6. Setelah disetujui, ubah status menjadi Published/Terbitkan dan simpan.\n7. Buka website publik untuk memastikan berita tampil dengan benar.\n\nJika tombol Terbitkan tidak muncul, akun mungkin tidak memiliki hak akses yang sesuai. Ini panduan umum; saya belum dapat memastikan nama tombol dan alur persis pada versi dashboard yang sedang digunakan.\n\n" + k.content);
+  }
+  if (has("surat", "mengurus layanan", "urus surat", "buat surat", "surat domisili", "surat keterangan", "surat usaha", "sktm", "surat pengantar", "persyaratan layanan") && has("cara", "bagaimana", "syarat", "persyaratan", "urus", "mengurus", "buat", "mendapatkan", "prosedur")) {
+    const k = item("Panduan umum mengurus layanan administrasi desa")!;
+    return respond(k.title, "Cara mengurus surat di desa bergantung pada jenis surat yang dibutuhkan. Langkah awalnya:\n1. Tentukan nama surat dan tujuan penggunaannya.\n2. Periksa menu Standar Pelayanan di website atau tanyakan kepada petugas desa untuk mengetahui persyaratan yang berlaku saat ini.\n3. Siapkan dokumen yang memang diminta untuk layanan tersebut; jangan menganggap semua surat membutuhkan berkas yang sama.\n4. Ajukan melalui kanal resmi atau datang ke kantor desa sesuai petunjuk petugas.\n5. Petugas memeriksa kelengkapan dan memberi tahu jika ada kekurangan. Ikuti petunjuk verifikasi dan pengambilan surat.\n\nSaya belum memiliki daftar persyaratan resmi terbaru untuk setiap jenis surat Desa Bawangan, jadi saya tidak akan menebak biaya atau lama proses. Surat apa yang ingin kamu urus? Saya bisa membantu menjelaskan hal yang perlu dikonfirmasi.\n\nSumber/pedoman umum: " + k.content);
+  }
+  if (has("cara menggunakan website", "menu website", "menu apa saja", "navigasi website", "website sid", "portal desa")) {
+    const k = item("Cara menggunakan website SID Bawangan")!;
+    return respond(k.title, k.summary + "\n\n" + k.content);
+  }
+  if (has("apbdes", "rpjm", "rkp desa", "realisasi anggaran", "ppid", "transparansi", "dokumen anggaran")) {
+    const k = item("Penjelasan menu Transparansi dan PPID")!;
+    return respond(k.title, k.summary + "\n\n" + k.content);
+  }
+  if (has("privasi", "data pribadi", "nomor induk", "nik", "otp", "kata sandi", "password", "rekening")) {
+    const k = item("Privasi dan keamanan informasi")!;
+    return respond(k.title, k.summary + "\n\n" + k.content);
+  }
+  return null;
+}
+
 function fallbackAnswer(items: Array<{title:string; summary:string; content:string}>) {
-  const chosen = items.slice(0, 3);
+  const chosen = items.slice(0, 2);
   if (!chosen.length) return { answer: "Maaf, informasi resmi yang cukup belum tersedia di website. Silakan periksa menu Profil, Berita, atau Layanan, atau hubungi kantor desa melalui kanal resmi yang tercantum di website. Mode informasi dasar sedang aktif.", sources: [], mode: "knowledge_fallback" };
   const lines = chosen.map((item) => {
     const summary = (item.summary ?? "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
