@@ -105,6 +105,12 @@ export default function HomePage() {
             <div className="agency-info-group" aria-hidden="true">
               <span className="agency-info-item"><i className="fa-solid fa-circle-check" aria-hidden="true" /> Selamat datang di website Desa Bawangan, Kecamatan Ploso, Kabupaten Jombang.</span>
               <span className="agency-info-separator">•</span>
+              <span className="agency-info-item"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> Semangat dan Kekompakan Desa Bawangan Berbuah Juara 3 Lomba Gerak Jalan Tingkat Kecamatan</span>
+              <span className="agency-info-separator">•</span>
+              <span className="agency-info-item"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> KPM 01 UNIPDU Petakan Kebutuhan Desa dan Pasang Tujuh Convex</span>
+              <span className="agency-info-separator">•</span>
+              <span className="agency-info-item"><i className="fa-solid fa-newspaper" aria-hidden="true" /> <strong>KABAR DESA:</strong> Dorong Desa Bawangan Menjadi Desa Berseri melalui kolaborasi KPM 01 UNIPDU dan DLH</span>
+              <span className="agency-info-separator">•</span>
               <span className="agency-info-item"><i className="fa-solid fa-seedling" aria-hidden="true" /> Merawat tradisi, mendorong kemandirian ekonomi, dan membangun Desa Bawangan yang sejahtera.</span>
               <span className="agency-info-separator">•</span>
             </div>
