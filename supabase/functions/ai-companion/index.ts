@@ -71,10 +71,14 @@ function smallTalkAnswer(question: string): { answer: string; sources: string[];
 }
 
 function fallbackAnswer(items: Array<{title:string; summary:string; content:string}>) {
-  const chosen = items.slice(0, 4);
+  const chosen = items.slice(0, 3);
   if (!chosen.length) return { answer: "Maaf, informasi resmi yang cukup belum tersedia di website. Silakan periksa menu Profil, Berita, atau Layanan, atau hubungi kantor desa melalui kanal resmi yang tercantum di website. Mode informasi dasar sedang aktif.", sources: [], mode: "knowledge_fallback" };
-  const lines = chosen.map((item) => "• " + item.title + ((item.summary || item.content) ? " — " + (item.summary || item.content).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim().slice(0, 400) : ""));
-  return { answer: "Saya sedang menggunakan mode informasi dasar. Berikut ringkasan informasi publik yang paling relevan:\n\n" + lines.join("\n\n") + "\n\nJika belum menjawab pertanyaan, silakan buka sumbernya atau hubungi kantor desa melalui kanal resmi pada website.", sources: chosen.map((item) => item.title), mode: "knowledge_fallback" };
+  const lines = chosen.map((item) => {
+    const summary = (item.summary ?? "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+    const detail = (item.content ?? "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim().slice(0, 850);
+    return "• " + item.title + (summary ? "\n" + summary : "") + (detail && detail !== summary ? "\nRincian: " + detail : "");
+  });
+  return { answer: "Saya menggunakan mode informasi dasar tanpa biaya API AI. Berikut pengetahuan yang paling relevan dengan pertanyaanmu:\n\n" + lines.join("\n\n") + "\n\nCatatan: informasi layanan yang spesifik tetap perlu dicocokkan dengan standar resmi terbaru Desa Bawangan.", sources: chosen.map((item) => item.title), mode: "knowledge_fallback" };
 }
 
 Deno.serve(async (request: Request) => {
