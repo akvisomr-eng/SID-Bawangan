@@ -289,6 +289,45 @@ export default function HomePage() {
       <div className="agency-container agency-timeline"><div className="agency-timeline-item"><span><i className="fa-solid fa-bullhorn" /></span><h3>Informasi Terbuka</h3><p>Berita dan pengumuman desa dalam satu portal.</p></div><div className="agency-timeline-item"><span><i className="fa-solid fa-people-group" /></span><h3>Warga Terhubung</h3><p>Informasi yang mudah dijangkau dari berbagai perangkat.</p></div><div className="agency-timeline-item"><span><i className="fa-solid fa-shield-halved" /></span><h3>Data Terverifikasi</h3><p>Informasi resmi ditampilkan setelah tersedia dan diperiksa.</p></div></div>
     </section>
 
+    <section className="agency-section agency-village-data" id="statistik-ringkas">
+      <div className="agency-container">
+        <div className="agency-section-heading"><p className="agency-kicker agency-kicker-green">BAWANGAN DALAM DATA</p><h2>Informasi Desa dalam Satu Pandangan</h2><p>Panel data dirancang seperti portal data desa. Angka statistik dan keuangan hanya akan ditampilkan setelah diverifikasi oleh Pemerintah Desa Bawangan.</p></div>
+        <div className="agency-data-grid">
+          <article className="agency-data-card"><span className="agency-data-icon"><i className="fa-solid fa-people-group" /></span><span className="agency-data-label">Penduduk</span><strong>Menunggu data resmi</strong><p>Ringkasan jumlah penduduk secara agregat.</p><a href="#data-penduduk">Lihat keterangan <i className="fa-solid fa-arrow-right" /></a></article>
+          <article className="agency-data-card"><span className="agency-data-icon"><i className="fa-solid fa-house-chimney" /></span><span className="agency-data-label">Kepala Keluarga</span><strong>Menunggu data resmi</strong><p>Data rumah tangga dalam bentuk agregat.</p><a href="#statistik">Lihat keterangan <i className="fa-solid fa-arrow-right" /></a></article>
+          <article className="agency-data-card"><span className="agency-data-icon"><i className="fa-solid fa-map" /></span><span className="agency-data-label">Wilayah</span><strong>Desa Bawangan</strong><p>Kecamatan Ploso, Kabupaten Jombang.</p><a href="#wilayah">Lihat peta <i className="fa-solid fa-arrow-right" /></a></article>
+          <article className="agency-data-card"><span className="agency-data-icon"><i className="fa-solid fa-coins" /></span><span className="agency-data-label">Anggaran Desa</span><strong>Menunggu dokumen resmi</strong><p>APBDes dan realisasi berdasarkan dokumen publik.</p><a href="#apbdes">Lihat transparansi <i className="fa-solid fa-arrow-right" /></a></article>
+        </div>
+        <p className="agency-source-note">Catatan: angka nol atau angka perkiraan tidak digunakan sebagai pengganti data resmi. Data individu penduduk tidak ditampilkan di halaman publik.</p>
+      </div>
+    </section>
+
+    <section className="agency-section" id="agenda-desa">
+      <div className="agency-container">
+        <div className="agency-section-heading"><p className="agency-kicker agency-kicker-green">AGENDA & PENGUMUMAN</p><h2>Agenda dan Informasi Warga</h2><p>Tempat pengumuman jadwal kegiatan, musyawarah, pelayanan keliling, dan agenda resmi desa.</p></div>
+        <div className="agency-agenda-grid">
+          <article className="agency-agenda-card"><span className="agency-agenda-symbol"><i className="fa-solid fa-calendar-days" /></span><div><span className="agency-agenda-type">AGENDA DESA</span><h3>Kalender kegiatan pemerintahan desa</h3><p>Jadwal kegiatan akan ditampilkan setelah tanggal, lokasi, dan penanggung jawab dikonfirmasi.</p><span className="agency-feature-status">Menunggu agenda resmi</span></div></article>
+          <article className="agency-agenda-card"><span className="agency-agenda-symbol"><i className="fa-solid fa-bullhorn" /></span><div><span className="agency-agenda-type">PENGUMUMAN</span><h3>Informasi penting untuk warga</h3><p>Pengumuman pelayanan, perubahan jadwal, dan pemberitahuan resmi dapat dipublikasikan melalui sistem konten desa.</p><a href="#berita">Lihat berita desa <i className="fa-solid fa-arrow-right" /></a></div></article>
+          <article className="agency-agenda-card"><span className="agency-agenda-symbol"><i className="fa-solid fa-comments" /></span><div><span className="agency-agenda-type">PARTISIPASI</span><h3>Musyawarah dan aspirasi masyarakat</h3><p>Informasi forum warga dan mekanisme partisipasi akan diperbarui setelah jadwal dan prosedur resmi tersedia.</p><a href="#partisipasi">Informasi partisipasi <i className="fa-solid fa-arrow-right" /></a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section className="agency-section agency-section-muted" id="pusat-dokumen">
+      <div className="agency-container">
+        <div className="agency-section-heading"><p className="agency-kicker agency-kicker-green">ARSIP PUBLIK</p><h2>Dokumen Desa</h2><p>Kategori dokumen mengikuti kebutuhan keterbukaan informasi desa. Berkas unduhan akan diaktifkan setelah dokumen resmi diunggah dan diverifikasi.</p></div>
+        <div className="agency-documents-grid">
+          <article className="agency-public-document"><i className="fa-solid fa-map-location-dot" /><div><h3>Peta dan Data Wilayah</h3><p>Peta wilayah, batas administrasi, serta dokumen tata ruang yang telah disahkan.</p></div><span>Menunggu berkas</span></article>
+          <article className="agency-public-document"><i className="fa-solid fa-file-signature" /><div><h3>Peraturan Desa dan Perkades</h3><p>Produk hukum, keputusan, dan peraturan yang berstatus terbuka untuk publik.</p></div><span>Menunggu berkas</span></article>
+          <article className="agency-public-document"><i className="fa-solid fa-calendar-check" /><div><h3>Dokumen Perencanaan</h3><p>RPJM Desa, RKP Desa, dan dokumen perencanaan pembangunan.</p></div><span>Menunggu berkas</span></article>
+          <article className="agency-public-document"><i className="fa-solid fa-chart-column" /><div><h3>Anggaran dan Realisasi</h3><p>APBDes, perubahan anggaran, laporan realisasi, dan ringkasan akuntabilitas.</p></div><span>Menunggu berkas</span></article>
+          <article className="agency-public-document"><i className="fa-solid fa-person-digging" /><div><h3>Laporan Pembangunan</h3><p>Informasi proyek, lokasi, dokumentasi, dan kemajuan pembangunan desa.</p></div><span>Menunggu berkas</span></article>
+          <article className="agency-public-document"><i className="fa-solid fa-book-open" /><div><h3>Standar Pelayanan Publik</h3><p>Persyaratan, alur, waktu, biaya resmi, dan formulir pelayanan.</p></div><span>Menunggu berkas</span></article>
+        </div>
+        <div className="agency-documents-footer"><i className="fa-solid fa-shield-halved" /><p>Dokumen yang memuat NIK, nomor KK, tanda tangan, nomor rekening, atau informasi pribadi akan diperiksa dan disamarkan sebelum dipublikasikan.</p><a href="#ppid">Informasi PPID <i className="fa-solid fa-arrow-right" /></a></div>
+      </div>
+    </section>
+
     <section className="agency-section agency-section-muted" id="ppid"><div className="agency-container"><div className="agency-section-heading"><h2>PPID Desa</h2><p>Pejabat Pengelola Informasi dan Dokumentasi — akses informasi publik secara terbuka dan bertanggung jawab.</p></div><div className="agency-document-panel"><span className="agency-document-icon"><i className="fa-solid fa-scale-balanced" /></span><div><h3>Layanan Informasi Publik</h3><p>Ruang PPID disiapkan untuk daftar informasi publik, prosedur permohonan, maklumat pelayanan, serta dokumen yang telah diverifikasi. Alur dan kontak resmi akan ditambahkan setelah ditetapkan oleh pemerintah desa.</p></div><span className="agency-document-status">PERSIAPAN</span></div></div></section>
 
     <section className="agency-section agency-section-muted" id="dokumen">
